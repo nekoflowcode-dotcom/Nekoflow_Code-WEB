@@ -1,0 +1,12 @@
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Configuraciones de editores de código
+.vscode/
+.idea/
+
+# Carpetas de dependencias o logs (por si más adelante suman algo con Node.js o npm)
+node_modules/
+npm-debug.log*
