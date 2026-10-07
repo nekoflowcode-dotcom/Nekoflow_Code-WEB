@@ -1,0 +1,75 @@
+@import url(styles.css);
+
+/* ======================= */
+/*    CONTENEDOR GLOBAL    */
+/* ======================= */
+.sticly-social-container {
+    position: fixed;
+    top: 50%;
+    left: -155px; /* Oculta parcialmente fuera de pantalla */
+    width: 200px;
+    z-index: 99;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transform: translateY(-50%); /* Centrado vertical real */
+}
+
+/* ======================= */
+/*    BOTONES FLOTANTES    */
+/* ======================= */
+.sticly-social a {
+    text-decoration: none;
+    background-color: var(--dark-green);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Corregido de 'end' a 'flex-end' para validez estándar */
+    margin-bottom: 10px;
+    height: 46px;
+    border-radius: 25px;
+    transition: all 0.25s ease-in-out;
+    overflow: hidden;
+}
+
+/* EFECTO HOVER: DESLIZAMIENTO */
+.sticly-social a:hover {
+    background-color: var(--light-green);
+    margin-right: -125px;
+}
+
+/* ======================= */
+/*     ÍCONOS Y TEXTOS     */
+/* ======================= */
+.sticly-social a i {
+    font-size: 28px;
+    color: var(--black);
+    margin: 10px;
+    transition: color 0.2s ease;
+}
+
+.sticly-social a:hover i {
+    color: var(--white);
+}
+
+.sticly-social a p {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--black);
+}
+
+/* ======================= */
+/*       RESPONSIVE        */
+/* ======================= */
+@media only screen and (max-width: 1024px) {
+    .sticly-social-container {
+        left: -160px; /* Ajuste para pantallas medianas/chicas */
+    }
+
+    .sticly-social a {
+        height: 36px;
+    }
+    
+    .sticly-social a i {
+        font-size: 22px;
+    }
+}
