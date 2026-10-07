@@ -1,0 +1,88 @@
+/* TIPOGRAFÍA PRINCIPAL */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
+
+/* ======================= */
+/*    --- VARIABLES ---    */
+/* ======================= */
+:root {
+    /* Tipografía */
+    --font-primary: 'Nunito', sans-serif;
+    --font-secondary: 'Poppins', sans-serif;
+
+    /* Colores base */
+    --black: #000000;
+    --white: #ffffff;
+    --red: #ff0000;
+    --blue: #1100fc;
+    --yellow: #ffc800;
+    --gray: #666666;
+    --gray-light: #eeeeee;
+    --gray-medium: #cccccc;
+    --gray-very-light: #f9f9f9;
+    --gray-border: #dddddd;
+    --gray-placeholder: #aaaaaa;
+
+    /* Colores principales */
+    --primary: #ffbc0e;
+    --primary-transparent: rgba(255, 188, 14, 0.5);
+    --background-base: #fff59d;
+    --dark: #1b3039;
+    --light: #eceff1;
+
+    /* Colores púrpura y rosas */
+    --dark-purple: #3c122c;
+    --medium-purple: #762ba3;
+    --light-purple: #ae40f0;
+    --pink: #fc5185;
+    --light-pink: #ffeffe;
+
+    /* Verdes */
+    --dark-green: #008b1c;
+    --light-green: #00b090;
+
+    /* Azules y superposiciones */
+    --blue-light: #e2f1f8;
+    --dark-overlay: rgba(33, 49, 63, 0.95);
+    --black-shadow: rgba(0, 0, 0, 0.2);
+
+    /* Sombras */
+    --shadow-dark: rgba(33, 49, 63, 0.3);
+    --shadow-black-light: rgba(0, 0, 0, 0.15);
+}
+
+/* ========================= */
+/* --- ESTILOS GENERALES --- */
+/* ========================= */
+/* RESET BÁSICO Y TIPOGRAFÍA GLOBAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* CONFIGURACIÓN DEL BODY Y BASE */
+body,
+input {
+    font-family: var(--font-primary);
+    font-size: 16px; /* Tamaño base estándar y saludable */
+    background-color: var(--background-base);
+    color: var(--dark);
+}
+
+.main-content {
+    padding-top: 75px;
+}
+
+/* QUITAR SUBRAYADO DE LOS ENLACES POR DEFECTO */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* CONTENEDOR GENERAL CON PADDING LATERAL Y CENTRADO */
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
