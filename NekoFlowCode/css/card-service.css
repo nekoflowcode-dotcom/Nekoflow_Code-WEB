@@ -1,0 +1,63 @@
+@import url(styles.css);
+/* SECCIÓN SERVICIOS */
+.services-section {
+    width: 100%;
+    padding: 80px 20px;
+}
+
+.services-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.services-section h2 {
+    margin-bottom: 40px;
+}
+
+
+/* CONTENEDOR DE TARJETAS */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+
+/* TARJETA */
+.service-card {
+    padding: 30px;
+    text-align: center;
+    border-radius: 20px;
+}
+
+
+/* ICONO */
+.service-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+}
+
+
+/* CONTENIDO */
+.service-content h3 {
+    margin-bottom: 15px;
+}
+
+.service-content p {
+    line-height: 1.6;
+}
+
+
+/* CELULAR */
+@media (max-width: 768px) {
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+}

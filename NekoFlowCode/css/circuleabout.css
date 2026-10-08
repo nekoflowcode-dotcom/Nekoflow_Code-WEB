@@ -1,0 +1,27 @@
+@import url(styles.css);
+
+/* Círculos informativos con movimiento escalonado. */
+.about-items {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 48px;
+    margin-top: 40px;
+}
+
+.about-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about-circle {
+    width: 120px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
