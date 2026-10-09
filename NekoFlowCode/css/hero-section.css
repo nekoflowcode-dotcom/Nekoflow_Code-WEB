@@ -19,22 +19,20 @@
     gap: 32px;
 }
 
-
 /* ========================================
    TARJETAS PRINCIPALES
 ======================================== */
-
 .hero-card {
     min-width: 0;
     padding: 40px;
 
-    background: #17131f;
-    color: #f5f3fa;
+    background: var(--deep-purple-card);
+    color: var(--white);
 
-    border: 1px solid rgba(176, 92, 255, 0.25);
+    border: 1px solid var(--purple-border-subtle);
     border-radius: 24px;
 
-    box-shadow: 0 15px 40px rgba(30, 10, 45, 0.18);
+    box-shadow: 0 15px 40px var(--shadow-card-dark);
 
     transition:
         transform 0.3s ease,
@@ -48,16 +46,14 @@
 .hero-card:hover {
     transform: translateY(-6px);
 
-    border-color: rgba(176, 92, 255, 0.7);
+    border-color: var(--purple-border-strong);
 
-    box-shadow: 0 22px 50px rgba(30, 10, 45, 0.28);
+    box-shadow: 0 22px 50px var(--shadow-card-hover);
 }
-
 
 /* ========================================
    TARJETA IZQUIERDA: PRESENTACIÓN
 ======================================== */
-
 .hero-main {
     padding: 48px;
 }
@@ -65,7 +61,7 @@
 .hero-label {
     margin-bottom: 24px;
 
-    color: #c18aff;
+    color: var(--purple-label);
     font-size: 0.85rem;
     font-weight: 700;
     letter-spacing: 1.5px;
@@ -81,28 +77,26 @@
 }
 
 .hero-description {
-    color: #c8c1d2;
+    color: var(--purple-text-muted);
     font-size: 1.05rem;
     line-height: 1.8;
 }
 
-
 /* ========================================
    TARJETA DERECHA: PROPUESTA Y PROCESO
 ======================================== */
-
 .hero-process {
     background: linear-gradient(
         145deg,
-        #20162d,
-        #17131f
+        var(--dark-purple-gradient),
+        var(--deep-purple-card)
     );
 }
 
 .process-label {
     margin-bottom: 12px;
 
-    color: #c18aff;
+    color: var(--purple-label);
     font-size: 0.85rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -119,7 +113,7 @@
 .process-description {
     margin-bottom: 32px;
 
-    color: #c8c1d2;
+    color: var(--purple-text-muted);
     line-height: 1.7;
 }
 
@@ -127,7 +121,6 @@
 /* ========================================
    ETAPAS DEL PROCESO
 ======================================== */
-
 .process-list {
     display: flex;
     flex-direction: column;
@@ -150,10 +143,10 @@
     width: 44px;
     height: 44px;
 
-    color: #d6b0ff;
-    background: rgba(176, 92, 255, 0.12);
+    color: var(--purple-number-light);
+    background: var(--purple-bg-alpha);
 
-    border: 1px solid rgba(176, 92, 255, 0.4);
+    border: 1px solid var(--purple-border-medium);
     border-radius: 14px;
 
     font-size: 0.9rem;
@@ -172,10 +165,14 @@
 }
 
 .process-content p {
-    color: #bcb4c8;
+    color: var(--purple-text-body);
     font-size: 0.95rem;
     line-height: 1.7;
 }
+
+/* ======================= */
+/*       RESPONSIVE        */
+/* ======================= */
 /* ADAPTACIÓN PARA CELULARES */
 @media (max-width: 768px) {
 
@@ -197,5 +194,4 @@
         font-size: 2.2rem;
         letter-spacing: -0.8px;
     }
-
 }

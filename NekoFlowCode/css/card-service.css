@@ -52,7 +52,9 @@
     line-height: 1.6;
 }
 
-
+/* ======================= */
+/*       RESPONSIVE        */
+/* ======================= */
 /* CELULAR */
 @media (max-width: 768px) {
 

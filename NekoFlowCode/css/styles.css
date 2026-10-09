@@ -36,6 +36,12 @@
     --light-purple: #ae40f0;
     --pink: #fc5185;
     --light-pink: #ffeffe;
+    --deep-purple-card: #17131f;       /* Nuevo: Tono púrpura muy oscuro para tarjetas */
+    --dark-purple-gradient: #20162d;  /* Nuevo: Tono para degradados */
+    --purple-label: #c18aff;          /* Nuevo: Púrpura claro para etiquetas */
+    --purple-text-muted: #c8c1d2;     /* Nuevo: Púrpura grisáceo para textos */
+    --purple-number-light: #d6b0ff;   /* Nuevo: Púrpura pastel para números */
+    --purple-text-body: #bcb4c8;      /* Nuevo: Púrpura suave para párrafos */
 
     /* Verdes */
     --dark-green: #008b1c;
@@ -49,6 +55,12 @@
     /* Sombras */
     --shadow-dark: rgba(33, 49, 63, 0.3);
     --shadow-black-light: rgba(0, 0, 0, 0.15);
+    --purple-border-subtle: rgba(176, 92, 255, 0.25);  /* Nuevo: Borde púrpura sutil */
+    --purple-border-strong: rgba(176, 92, 255, 0.7);   /* Nuevo: Borde púrpura fuerte (hover) */
+    --purple-border-medium: rgba(176, 92, 255, 0.4);   /* Nuevo: Borde púrpura medio */
+    --purple-bg-alpha: rgba(176, 92, 255, 0.12);       /* Nuevo: Fondo púrpura translúcido */
+    --shadow-card-dark: rgba(30, 10, 45, 0.18);       /* Nuevo: Sombra oscura para tarjetas */
+    --shadow-card-hover: rgba(30, 10, 45, 0.28);      /* Nuevo: Sombra oscura en hover */
 }
 
 /* ========================= */
