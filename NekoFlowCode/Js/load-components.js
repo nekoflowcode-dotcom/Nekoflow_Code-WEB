@@ -1,22 +1,32 @@
+/* ========================================== */
+/*   CARGA DINÁMICA DE COMPONENTES MODULARES  */
+/* ========================================== */
 document.addEventListener("DOMContentLoaded", () => {
-    
-    // Función para cargar los fragmentos desde la carpeta Pages
-    const loadComponent = (id, file) => {
-        const element = document.getElementById(id);
-        if (element) {
-            fetch(file)
-                .then(response => response.text())
-                .then(data => {
-                    element.innerHTML = data;
+
+    /**
+     * Carga un archivo HTML dentro de un contenedor por su ID
+     * @param {string} idContainer - ID del elemento destino
+     * @param {string} filePath - Ruta del archivo HTML a inyectar
+     */
+    const loadComponent = (idContainer, filePath) => {
+        const container = document.getElementById(idContainer);
+        if (container) {
+            fetch(filePath)
+                .then(response => {
+                    if (!response.ok) throw new Error(`Error al cargar ${filePath}`);
+                    return response.text();
                 })
-                .catch(error => console.error("Error al cargar:", error));
+                .then(data => {
+                    container.innerHTML = data;
+                })
+                .catch(error => console.error("Error en modularización:", error));
         }
     };
 
-    // Apuntamos a la ruta dentro de la carpeta Pages
-    loadComponent("inicio-placeholder", "Pages/inicio.html");
-    loadComponent("nosotros-placeholder", "Pages/nosotros.html");
-    loadComponent("servicios-placeholder", "Pages/servicios.html");
-    loadComponent("proyecto-placeholder", "Pages/proyecto.html");
-    loadComponent("contacto-placeholder", "Pages/contacto.html");
+    // Inyección de secciones desde la carpeta Pages
+    loadComponent("inicio-container", "Pages/inicio.html");
+    loadComponent("nosotros-container", "Pages/nosotros.html");
+    loadComponent("servicios-container", "Pages/servicios.html");
+    loadComponent("proyecto-container", "Pages/proyecto.html");
+    loadComponent("contacto-container", "Pages/contacto.html");
 });
