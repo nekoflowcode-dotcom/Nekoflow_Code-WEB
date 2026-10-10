@@ -1,32 +1,35 @@
 /* ========================================== */
-/*   CARGA DINÁMICA DE COMPONENTES MODULARES  */
+/*   CARGA DINÁMICA OPTIMIZADA DE COMPONENTES */
 /* ========================================== */
 document.addEventListener("DOMContentLoaded", () => {
+    // Mapa de contenedores y sus archivos correspondientes
+    const components = [
+        { id: "inicio-container", file: "Pages/inicio.html" },
+        { id: "nosotros-container", file: "Pages/nosotros.html" },
+        { id: "servicios-container", file: "Pages/servicios.html" },
+        { id: "proyecto-container", file: "Pages/proyecto.html" },
+        { id: "contacto-container", file: "Pages/contacto.html" }
+    ];
+    // Carga paralela de todos los componentes
+    const loadPromises = components.map(({ id, file }) => {
+        const container = document.getElementById(id);
+        if (!container) return Promise.resolve();
 
-    /**
-     * Carga un archivo HTML dentro de un contenedor por su ID
-     * @param {string} idContainer - ID del elemento destino
-     * @param {string} filePath - Ruta del archivo HTML a inyectar
-     */
-    const loadComponent = (idContainer, filePath) => {
-        const container = document.getElementById(idContainer);
-        if (container) {
-            fetch(filePath)
-                .then(response => {
-                    if (!response.ok) throw new Error(`Error al cargar ${filePath}`);
-                    return response.text();
-                })
-                .then(data => {
-                    container.innerHTML = data;
-                })
-                .catch(error => console.error("Error en modularización:", error));
-        }
-    };
-
-    // Inyección de secciones desde la carpeta Pages
-    loadComponent("inicio-container", "Pages/inicio.html");
-    loadComponent("nosotros-container", "Pages/nosotros.html");
-    loadComponent("servicios-container", "Pages/servicios.html");
-    loadComponent("proyecto-container", "Pages/proyecto.html");
-    loadComponent("contacto-container", "Pages/contacto.html");
+        return fetch(file)
+            .then(response => {
+                if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+                return response.text();
+            })
+            .then(html => {
+                container.innerHTML = html;
+            })
+            .catch(error => {
+                console.error(`Error al cargar el componente (${file}):`, error);
+                container.innerHTML = `<p class="error-msg">No se pudo cargar esta sección.</p>`;
+            });
+    });
+    // Una vez que todos los componentes cargan, avisamos al documento
+    Promise.all(loadPromises).then(() => {
+        document.dispatchEvent(new CustomEvent("componentsLoaded"));
+    });
 });

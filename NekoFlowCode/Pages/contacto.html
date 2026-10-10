@@ -1,18 +1,19 @@
-<!-- 4. SECCIÓN CONTACTO -->
-<section id="contacto" class="contact-section">
+<!-- === SECCIÓN CONTACTO === -->
+<section id="contacto" class="contact-section" aria-labelledby="contacto-titulo">
     <div class="container">
         <div class="contact_in">
             <div class="contact_form">
-                <h2>¿Tenés un proyecto en mente?</h2>
+                <h2 id="contacto-titulo">¿Tenés un proyecto en mente?</h2>
+                
                 <form action="#" method="POST">
-                    <label class="contact_form-lbl" for="name">Nombre</label>
-                    <input class="contact_form-text" type="text" id="name" placeholder="Tu nombre..." required>
+                    <label class="contact_form-lbl" for="name">Nombre completo</label>
+                    <input class="contact_form-text" type="text" id="name" name="name" placeholder="Tu nombre..." autocomplete="name" required>
 
-                    <label class="contact_form-lbl" for="email">Email</label>
-                    <input class="contact_form-text" type="email" id="email" placeholder="tucorreo@email.com" required>
+                    <label class="contact_form-lbl" for="email">Correo electrónico</label>
+                    <input class="contact_form-text" type="email" id="email" name="email" placeholder="tucorreo@email.com" autocomplete="email" required>
 
                     <label class="contact_form-lbl" for="message">Mensaje</label>
-                    <textarea class="contact_form-textarea" id="message" placeholder="Contanos sobre tu proyecto..." required></textarea>
+                    <textarea class="contact_form-textarea" id="message" name="message" placeholder="Contanos sobre tu proyecto..." required></textarea>
 
                     <button class="contact_form-btn" type="submit">Enviar Mensaje</button>
                 </form>
