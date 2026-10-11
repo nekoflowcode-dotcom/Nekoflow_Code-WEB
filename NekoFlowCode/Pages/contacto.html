@@ -1,21 +1,33 @@
-<!-- === SECCIÓN CONTACTO === -->
+<!-- 4. SECCIÓN CONTACTO -->
 <section id="contacto" class="contact-section" aria-labelledby="contacto-titulo">
     <div class="container">
         <div class="contact_in">
             <div class="contact_form">
                 <h2 id="contacto-titulo">¿Tenés un proyecto en mente?</h2>
-                
-                <form action="#" method="POST">
+
+                <form id="email-form" novalidate>
+                    <!-- Campo Nombre -->
                     <label class="contact_form-lbl" for="name">Nombre completo</label>
-                    <input class="contact_form-text" type="text" id="name" name="name" placeholder="Tu nombre..." autocomplete="name" required>
+                    <input class="contact_form-text" type="text" id="name" name="name" placeholder="Tu nombre..."
+                        autocomplete="name" required minlength="3">
 
+                    <!-- Campo Email -->
                     <label class="contact_form-lbl" for="email">Correo electrónico</label>
-                    <input class="contact_form-text" type="email" id="email" name="email" placeholder="tucorreo@email.com" autocomplete="email" required>
+                    <input class="contact_form-text" type="email" id="email" name="email"
+                        placeholder="tucorreo@email.com" autocomplete="email" required>
 
+                    <!-- Campo Mensaje -->
                     <label class="contact_form-lbl" for="message">Mensaje</label>
-                    <textarea class="contact_form-textarea" id="message" name="message" placeholder="Contanos sobre tu proyecto..." required></textarea>
+                    <textarea class="contact_form-textarea" id="message" name="message"
+                        placeholder="Contanos sobre tu proyecto..." required minlength="10"></textarea>
 
-                    <button class="contact_form-btn" type="submit">Enviar Mensaje</button>
+                    <!-- Contenedor para mensajes de estado/error -->
+                    <div id="form-status" class="form-status-msg" aria-live="polite"></div>
+
+                    <!-- Botón de Envío -->
+                    <button class="contact_form-btn" type="submit" id="submit-btn">
+                        Enviar Mensaje
+                    </button>
                 </form>
             </div>
         </div>

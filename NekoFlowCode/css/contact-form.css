@@ -120,6 +120,27 @@
 }
 
 /* ======================= */
+/*   MENSAJES DE ESTADO    */
+/* ======================= */
+.form-status-msg {
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: center;
+    min-height: 1.5em;
+    transition: color 0.3s ease;
+}
+
+.status-error {
+    color: var(--red); /* Rojo elegante para errores o validaciones */
+}
+
+.status-success {
+    color: var(--green); /* Verde fresco para confirmación de envío exitoso */
+}
+
+
+/* ======================= */
 /*       RESPONSIVE        */
 /* ======================= */
 @media(max-width: 767px) {
