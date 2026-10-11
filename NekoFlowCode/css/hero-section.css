@@ -82,19 +82,25 @@
     line-height: 1.8;
 }
 
+
 /* ========================================
-   TARJETA DERECHA: PROPUESTA Y PROCESO
+   TARJETA DERECHA: PRESENTACIÓN Y CTA
 ======================================== */
+
 .hero-process {
-    background: linear-gradient(
-        145deg,
-        var(--dark-purple-gradient),
-        var(--deep-purple-card)
-    );
+    background: linear-gradient(145deg,
+            var(--dark-purple-gradient),
+            var(--deep-purple-card));
+}
+
+.hero-cta-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .process-label {
-    margin-bottom: 12px;
+    margin-bottom: 20px;
 
     color: var(--purple-label);
     font-size: 0.85rem;
@@ -103,19 +109,205 @@
     letter-spacing: 1.5px;
 }
 
-.process-header h2 {
+.hero-cta-content h2 {
     margin-bottom: 16px;
 
-    font-size: 1.8rem;
+    font-size: clamp(1.6rem, 2.5vw, 2rem);
     line-height: 1.25;
+    letter-spacing: -0.5px;
 }
 
 .process-description {
-    margin-bottom: 32px;
+    margin-bottom: 28px;
 
     color: var(--purple-text-muted);
     line-height: 1.7;
 }
+
+/* ========================================
+   BOTÓN: CONOCÉ QUIÉNES SOMOS
+======================================== */
+
+.hero-cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    max-width: 100%;
+    padding: 14px 20px;
+
+    color: var(--white);
+    background: var(--purple-bg-alpha);
+
+    border: 1px solid var(--purple-border-strong);
+    border-radius: 12px;
+
+    font: inherit;
+    font-weight: 700;
+    text-align: center;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        background-color 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.hero-cta-button:hover {
+    transform: translateY(-3px);
+    border-color: var(--purple-label);
+    box-shadow: 0 8px 24px var(--shadow-card-dark);
+}
+
+.hero-cta-button:focus-visible,
+.hero-modal-close:focus-visible {
+    outline: 2px solid var(--purple-label);
+    outline-offset: 4px;
+}
+
+.hero-cta-icon {
+    font-size: 1.2rem;
+    transition: transform 0.25s ease;
+}
+
+.hero-cta-button:hover .hero-cta-icon {
+    transform: translate(2px, -2px);
+}
+
+/* ========================================
+   MODAL: PRESENTACIÓN DE LA AGENCIA
+======================================== */
+
+.hero-modal {
+    width: min(600px, calc(100% - 32px));
+    max-width: none;
+    max-height: calc(100% - 32px);
+    padding: 0;
+
+    color: var(--white);
+    background: var(--deep-purple-card);
+
+    border: 1px solid var(--purple-border-strong);
+    border-radius: 24px;
+
+    box-shadow: 0 24px 70px var(--shadow-card-hover);
+
+    overflow-y: auto;
+}
+
+.hero-modal::backdrop {
+    background: color-mix(in srgb,
+            var(--deep-purple-card),
+            transparent 35%);
+}
+
+.hero-modal-content {
+    padding: clamp(24px, 5vw, 40px);
+}
+
+.hero-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+
+    margin-bottom: 24px;
+}
+
+.hero-modal-label {
+    margin: 0;
+
+    color: var(--purple-label);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.hero-modal-close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    width: 42px;
+    height: 42px;
+
+    color: var(--white);
+    background: var(--purple-bg-alpha);
+
+    border: 1px solid var(--purple-border-medium);
+    border-radius: 12px;
+
+    font: inherit;
+    font-size: 1.7rem;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.hero-modal-close:hover {
+    border-color: var(--purple-label);
+}
+
+.hero-modal-content>h2 {
+    margin-bottom: 16px;
+
+    font-size: clamp(1.7rem, 4vw, 2.2rem);
+    line-height: 1.2;
+}
+
+.hero-modal-intro {
+    margin-bottom: 28px;
+
+    color: var(--purple-text-muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.hero-modal-section+.hero-modal-section {
+    margin-top: 24px;
+}
+
+.hero-modal-section h3 {
+    margin-bottom: 8px;
+
+    font-size: 1.05rem;
+}
+
+.hero-modal-section p {
+    color: var(--purple-text-body);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+/* ========================================
+   ACCESIBILIDAD: MOVIMIENTO REDUCIDO
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .hero-cta-button,
+    .hero-cta-icon,
+    .hero-modal-close {
+        transition: none;
+    }
+
+    .hero-cta-button:hover {
+        transform: none;
+    }
+
+    .hero-cta-button:hover .hero-cta-icon {
+        transform: none;
+    }
+}
+
 
 
 /* ========================================
@@ -170,18 +362,19 @@
     line-height: 1.7;
 }
 
-/* ======================= */
-/*       RESPONSIVE        */
-/* ======================= */
-/* ADAPTACIÓN PARA CELULARES */
-@media (max-width: 768px) {
 
+
+/* ========================================
+   RESPONSIVE: ESTRUCTURA PRINCIPAL
+======================================== */
+
+@media (max-width: 768px) {
     .hero-section {
         padding: 60px 16px;
     }
 
     .hero-section .container {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         gap: 24px;
     }
 
@@ -193,5 +386,49 @@
     .hero-main h1 {
         font-size: 2.2rem;
         letter-spacing: -0.8px;
+    }
+}
+
+
+/* APARICIÓN SUAVE DEL MODAL */
+
+.hero-modal[open] {
+    animation: hero-modal-appear 0.22s ease-out;
+}
+
+.hero-modal[open]::backdrop {
+    animation: hero-backdrop-appear 0.22s ease-out;
+}
+
+@keyframes hero-modal-appear {
+    from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes hero-backdrop-appear {
+    from {
+        background: transparent;
+    }
+
+    to {
+        background: color-mix(
+            in srgb,
+            var(--deep-purple-card),
+            transparent 35%
+        );
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-modal[open],
+    .hero-modal[open]::backdrop {
+        animation: none;
     }
 }

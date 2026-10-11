@@ -18,72 +18,84 @@
                 y adaptadas a las necesidades de cada proyecto.
             </p>
 
-        </article>
+        </article> <!-- No tocar -->
 
-        <!-- TARJETA DERECHA: PROPUESTA Y PROCESO -->
+
+        <!-- TARJETA DERECHA: PRESENTACIÓN DE NEKOFLOW CODE -->
         <article class="hero-card hero-process">
 
-            <div class="process-header">
+            <div class="hero-cta-content">
 
-                <p class="process-label"></p>
+                <p class="process-label">Conocé Nekoflow Code</p>
 
-                <h2></h2>
+                <h2>Soluciones digitales para hacer crecer tu negocio.</h2>
 
-                <p class="process-description"></p>
+                <p class="process-description">
+                    Creamos páginas web, catálogos digitales y soluciones a medida
+                    para pymes, comercios y emprendimientos.
+                </p>
 
-            </div>
-
-            <!-- ETAPAS DEL PROCESO -->
-            <div class="process-list">
-
-                <!-- ETAPA 1 -->
-                <div class="process-item">
-
-                    <span class="process-number">01</span>
-
-                    <div class="process-content">
-
-                        <h3></h3>
-
-                        <p></p>
-
-                    </div>
-
-                </div>
-
-                <!-- ETAPA 2 -->
-                <div class="process-item">
-
-                    <span class="process-number">02</span>
-
-                    <div class="process-content">
-
-                        <h3></h3>
-
-                        <p></p>
-
-                    </div>
-
-                </div>
-
-                <!-- ETAPA 3 -->
-                <div class="process-item">
-
-                    <span class="process-number">03</span>
-
-                    <div class="process-content">
-
-                        <h3></h3>
-
-                        <p></p>
-
-                    </div>
-
-                </div>
+                <button class="hero-cta-button" type="button" id="open-hero-modal">
+                    <span>Conocé quiénes somos</span>
+                    <span class="hero-cta-icon" aria-hidden="true">↗</span>
+                </button>
 
             </div>
 
         </article>
+
+        <!-- TARJETA DERECHA CON MODAL Y PRESENTACIÓN -->
+        <!-- MODAL: PRESENTACIÓN DE NEKOFLOW CODE -->
+        <dialog class="hero-modal" id="hero-modal" aria-labelledby="hero-modal-title">
+
+            <div class="hero-modal-content">
+
+                <div class="hero-modal-header">
+                    <p class="hero-modal-label">NEKOFLOW CODE</p>
+
+                    <!-- El cierre se conectará al comportamiento JavaScript -->
+                    <button class="hero-modal-close" type="button" aria-label="Cerrar ventana" id="close-hero-modal">
+                        &times;
+                    </button>
+                </div>
+
+                <h2 id="hero-modal-title">Conocé quiénes somos</h2>
+
+                <p class="hero-modal-intro">
+                    Transformamos ideas en soluciones digitales pensadas
+                    para las necesidades de cada negocio.
+                </p>
+
+                <div class="hero-modal-section">
+                    <h3>Quiénes somos</h3>
+                    <p>
+                        Nekoflow Code es un equipo enfocado en crear soluciones
+                        digitales que acompañen a empresas, pymes, comercios
+                        y emprendimientos en su crecimiento.
+                    </p>
+                </div>
+
+                <div class="hero-modal-section">
+                    <h3>Qué hacemos</h3>
+                    <p>
+                        Desarrollamos páginas web, catálogos digitales y soluciones
+                        a medida, buscando responder a las necesidades de cada proyecto.
+                    </p>
+                </div>
+
+                <div class="hero-modal-section">
+                    <h3>Cómo trabajamos</h3>
+                    <p>
+                        Escuchamos las necesidades de cada cliente, planificamos
+                        la solución y trabajamos en su desarrollo para crear
+                        experiencias digitales funcionales y adaptadas a sus objetivos.
+                    </p>
+                </div>
+
+            </div>
+
+        </dialog>
+
 
     </div>
 </section>
