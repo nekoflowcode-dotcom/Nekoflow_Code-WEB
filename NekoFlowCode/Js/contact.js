@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const nameInput = document.querySelector("#name");
         const emailInput = document.querySelector("#email");
         const messageInput = document.querySelector("#message");
+        const honeypotInput = document.querySelector("#website-trap"); // Captura el campo trampa
         const submitBtn = document.querySelector("#submit-btn") || contactForm.querySelector(".contact_form-btn");
         const statusMsg = document.querySelector("#form-status");
 
@@ -22,7 +23,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
             showStatus("", ""); // Limpiamos mensajes anteriores de forma correcta
 
-            // 1. VALIDACIONES LOCALES
+            // 1. CAPA DE SEGURIDAD: HONEYPOT (Detección de Bots)
+            if (honeypotInput && honeypotInput.value.trim() !== "") {
+                // Si el bot rellenó el campo trampa, fingimos éxito para engañarlo pero bloqueamos el envío real
+                showStatus("¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.", "success");
+                contactForm.reset();
+                return;
+            }
+
+            // 2. CAPA DE SEGURIDAD: RATE LIMITING (Control de tiempo por localStorage - 60 segundos)
+            const ultimoEnvio = localStorage.getItem("ultimoEnvioContact")
+            const ahora = Date.now();
+            const tiempoEspera = 60000; // 60 segundos en milisegundos
+
+            if (ultimoEnvio && (ahora - ultimoEnvio < tiempoEspera)) {
+                const segundosRestantes = Math.ceil((tiempoEspera - (ahora - ultimoEnvio)) / 1000);
+                showStatus(`Por favor, esperá ${segundosRestantes} segundos antes de enviar otro mensaje.`, "error");
+                return;
+            }
+
+            // 3. CAPA DE SEGURIDAD: FILTRO ANTI-ENLACES SPAM EN EL MENSAJE
+            const mensajeTexto = messageInput.value.toLowerCase();
+            if (mensajeTexto.includes("http://") || mensajeTexto.includes("https://") || mensajeTexto.includes("www.")) {
+                showStatus("Por seguridad, los mensajes no pueden contener enlaces web.", "error");
+                messageInput.focus();
+                return;
+            }
+
+            // 4. VALIDACIONES LOCALES
             if (nameInput.value.trim().length < 3) {
                 showStatus("Por favor, ingresá un nombre válido (mínimo 3 caracteres).", "error");
                 nameInput.focus();
@@ -41,12 +69,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            // 2. ESTADO DE CARGA EN EL BOTÓN
+            // 5. ESTADO DE CARGA EN EL BOTÓN
             const originalBtnText = submitBtn.textContent;
             submitBtn.textContent = "Enviando mensaje...";
             submitBtn.disabled = true;
 
-            // 3. PARÁMETROS PARA LA PLANTILLA DE EMAILJS
+            // 6. PARÁMETROS PARA LA PLANTILLA DE EMAILJS
             const templateParams = {
                 name: nameInput.value.trim(),
                 email: emailInput.value.trim(),
@@ -61,6 +89,9 @@ document.addEventListener("DOMContentLoaded", () => {
             // Usamos emailjs.send en lugar de sendForm para controlar bien los parámetros
             emailjs.send(serviceID, templateID, templateParams)
                 .then(() => {
+                    // Guardamos la marca de tiempo del envío exitoso para el Rate Limiting
+                    localStorage.setItem("ultimoEnvioContact", Date.now());
+                    
                     alert("¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.");
                     contactForm.reset(); // Limpia los campos del formulario
                 }, (error) => {
