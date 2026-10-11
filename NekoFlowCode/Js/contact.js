@@ -18,21 +18,35 @@ document.addEventListener("DOMContentLoaded", () => {
         // Expresión regular estándar para validar formato de email
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+        // Función auxiliar interna para mostrar alertas visuales en pantalla
+        function showStatus(message, type) {
+            if (!statusMsg) return;
+            statusMsg.textContent = message;
+            statusMsg.className = "form-status-msg " + (type ? `status-${type}` : "");
+        }
+
+        // UX MEJORA: Limpiar errores y atributos de accesibilidad al empezar a tipear
+        [nameInput, emailInput, messageInput].forEach(input => {
+            input.addEventListener("input", () => {
+                input.removeAttribute("aria-invalid");
+                showStatus("", "");
+            });
+        });
+
         contactForm.addEventListener("submit", function (event) {
             event.preventDefault(); // Prevenir recarga de página
 
-            showStatus("", ""); // Limpiamos mensajes anteriores de forma correcta
+            showStatus("", ""); // Limpiamos mensajes anteriores
 
             // 1. CAPA DE SEGURIDAD: HONEYPOT (Detección de Bots)
             if (honeypotInput && honeypotInput.value.trim() !== "") {
-                // Si el bot rellenó el campo trampa, fingimos éxito para engañarlo pero bloqueamos el envío real
                 showStatus("¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.", "success");
                 contactForm.reset();
                 return;
             }
 
-            // 2. CAPA DE SEGURIDAD: RATE LIMITING (Control de tiempo por localStorage - 60 segundos)
-            const ultimoEnvio = localStorage.getItem("ultimoEnvioContact")
+            // 2. CAPA DE SEGURIDAD: RATE LIMITING (Control de tiempo - 60 segundos)
+            const ultimoEnvio = localStorage.getItem("ultimoEnvioContact");
             const ahora = Date.now();
             const tiempoEspera = 60000; // 60 segundos en milisegundos
 
@@ -42,34 +56,38 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            // 3. CAPA DE SEGURIDAD: FILTRO ANTI-ENLACES SPAM EN EL MENSAJE
-            const mensajeTexto = messageInput.value.toLowerCase();
-            if (mensajeTexto.includes("http://") || mensajeTexto.includes("https://") || mensajeTexto.includes("www.")) {
-                showStatus("Por seguridad, los mensajes no pueden contener enlaces web.", "error");
-                messageInput.focus();
-                return;
-            }
-
-            // 4. VALIDACIONES LOCALES
+            // 3. VALIDACIONES LOCALES CON UX Y ACCESIBILIDAD
             if (nameInput.value.trim().length < 3) {
                 showStatus("Por favor, ingresá un nombre válido (mínimo 3 caracteres).", "error");
+                nameInput.setAttribute("aria-invalid", "true");
                 nameInput.focus();
                 return;
             }
 
             if (!emailRegex.test(emailInput.value.trim())) {
                 showStatus("Por favor, ingresá un correo electrónico válido.", "error");
+                emailInput.setAttribute("aria-invalid", "true");
                 emailInput.focus();
                 return;
             }
 
             if (messageInput.value.trim().length < 10) {
                 showStatus("El mensaje es muy corto. Escribí al menos 10 caracteres.", "error");
+                messageInput.setAttribute("aria-invalid", "true");
                 messageInput.focus();
                 return;
             }
 
-            // 5. ESTADO DE CARGA EN EL BOTÓN
+            // 4. CAPA DE SEGURIDAD: FILTRO ANTI-ENLACES SPAM EN EL MENSAJE
+            const mensajeTexto = messageInput.value.toLowerCase();
+            if (mensajeTexto.includes("http://") || mensajeTexto.includes("https://") || mensajeTexto.includes("www.")) {
+                showStatus("Por seguridad, los mensajes no pueden contener enlaces web.", "error");
+                messageInput.setAttribute("aria-invalid", "true");
+                messageInput.focus();
+                return;
+            }
+
+            // 5. ESTADO DE CARGA EN EL BOTÓN (UX: Indicador claro de proceso)
             const originalBtnText = submitBtn.textContent;
             submitBtn.textContent = "Enviando mensaje...";
             submitBtn.disabled = true;
@@ -80,36 +98,41 @@ document.addEventListener("DOMContentLoaded", () => {
                 email: emailInput.value.trim(),
                 message: messageInput.value.trim(),
                 title: "Nuevo contacto desde la web de Nekoflow",
-                time: new Date().toLocaleString()  // Genera la fecha y hora exacta automáticamente
+                time: new Date().toLocaleString()
             };
 
             const serviceID = "service_NEKOemail";
             const templateID = "template_NEKOemail";
 
-            // Usamos emailjs.send en lugar de sendForm para controlar bien los parámetros
+            // Usamos emailjs.send con su .then(), .catch() y .finally() bien estructurados
             emailjs.send(serviceID, templateID, templateParams)
                 .then(() => {
-                    // Guardamos la marca de tiempo del envío exitoso para el Rate Limiting
                     localStorage.setItem("ultimoEnvioContact", Date.now());
-                    
-                    alert("¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.");
+                    showStatus("¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.", "success");
+
+                    // UX EXTRA: Pulso visual de éxito
+                    const formContainer = contactForm.closest(".contact_form");
+                    if (formContainer) {
+                        formContainer.classList.add("success-flash");
+                        setTimeout(() => formContainer.classList.remove("success-flash"), 1000);
+                    }
+
                     contactForm.reset(); // Limpia los campos del formulario
-                }, (error) => {
+
+                    // UX EXTRA: Limpiar el mensaje de éxito automáticamente después de 6 segundos
+                    setTimeout(() => {
+                        showStatus("", "");
+                    }, 6000);
+                })
+                .catch((error) => {
                     console.error("Error al enviar el correo:", error);
-                    alert("Hubo un error al enviar el mensaje. Por favor, intentá nuevamente.");
+                    showStatus("Hubo un error al enviar el mensaje. Por favor, intentá nuevamente.", "error");
                 })
                 .finally(() => {
-                    // Restauramos el botón original
+                    // Restauramos el botón original de forma segura
                     submitBtn.textContent = originalBtnText;
                     submitBtn.disabled = false;
                 });
         });
-
-        // Función auxiliar para mostrar alertas visuales en pantalla
-        function showStatus(message, type) {
-            if (!statusMsg) return; // Validación de seguridad por si el elemento no existe
-            statusMsg.textContent = message;
-            statusMsg.className = "form-status-msg " + (type ? `status-${type}` : "");
-        }
     });
 });
