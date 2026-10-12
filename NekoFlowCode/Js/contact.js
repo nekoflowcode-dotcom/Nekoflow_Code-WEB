@@ -87,18 +87,28 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            // 5. ESTADO DE CARGA EN EL BOTÓN (UX: Indicador claro de proceso)
+            // ==========================================================
+            // 5. VALIDACIÓN DE RECAPTCHA V2
+            // ==========================================================
+            const recaptchaResponse = grecaptcha.getResponse();
+            if (!recaptchaResponse) {
+                showStatus("Por favor, completá el reCAPTCHA para verificar que no sos un robot.", "error");
+                return;
+            }
+
+            // 6. ESTADO DE CARGA EN EL BOTÓN (UX: Indicador claro de proceso)
             const originalBtnText = submitBtn.textContent;
             submitBtn.textContent = "Enviando mensaje...";
             submitBtn.disabled = true;
 
-            // 6. PARÁMETROS PARA LA PLANTILLA DE EMAILJS
+            // 7. PARÁMETROS + EL TOKEN DE RECAPTCHA PARA EMAILJS
             const templateParams = {
                 name: nameInput.value.trim(),
                 email: emailInput.value.trim(),
                 message: messageInput.value.trim(),
                 title: "Nuevo contacto desde la web de Nekoflow",
-                time: new Date().toLocaleString()
+                time: new Date().toLocaleString(),
+                "g-recaptcha-response": recaptchaResponse // <- Clave indispensable que pide EmailJS
             };
 
             const serviceID = "service_NEKOemail";
@@ -118,6 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
 
                     contactForm.reset(); // Limpia los campos del formulario
+                    grecaptcha.reset(); // Resetea el widget de Google para que pueda usarse de nuevo
 
                     // UX EXTRA: Limpiar el mensaje de éxito automáticamente después de 6 segundos
                     setTimeout(() => {
@@ -127,6 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 .catch((error) => {
                     console.error("Error al enviar el correo:", error);
                     showStatus("Hubo un error al enviar el mensaje. Por favor, intentá nuevamente.", "error");
+                    grecaptcha.reset(); // Resetea el captcha si hubo error
                 })
                 .finally(() => {
                     // Restauramos el botón original de forma segura
