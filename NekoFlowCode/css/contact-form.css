@@ -139,6 +139,42 @@
     color: var(--green); /* Verde fresco para confirmación de envío exitoso */
 }
 
+/* Feedback visual para campos con error de accesibilidad */
+.contact_form-text[aria-invalid="true"],
+.contact_form-textarea[aria-invalid="true"] {
+    border-color: var(--red);
+    box-shadow: 0 0 5px var(--dark-purple);
+}
+
+/* ======================= */
+/*   ANIMACIÓN DE ESTADOS  */
+/* ======================= */
+@keyframes fadeInSlide {
+    0% {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-status-msg.status-success,
+.form-status-msg.status-error {
+    animation: fadeInSlide 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Efecto visual extra en el botón cuando el formulario se envía con éxito */
+.contact_form.success-flash {
+    animation: successPulse 0.6s ease;
+}
+
+@keyframes successPulse {
+    0% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.4); }
+    70% { box-shadow: 0 0 0 15px rgba(46, 204, 113, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); }
+}
 
 /* ======================= */
 /*       RESPONSIVE        */

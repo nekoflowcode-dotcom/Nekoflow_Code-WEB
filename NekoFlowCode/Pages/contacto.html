@@ -21,6 +21,17 @@
                     <textarea class="contact_form-textarea" id="message" name="message"
                         placeholder="Contanos sobre tu proyecto..." required minlength="10"></textarea>
 
+                    <!-- CAMPO TRAMPA (HONEYPOT) - OCULTO PARA HUMANOS -->
+                    <div style="display: none;" aria-hidden="true">
+                        <label for="website-trap">No completar este campo:</label>
+                        <input type="text" id="website-trap" name="website-trap" tabindex="-1" autocomplete="off">
+                    </div>
+
+                    <!-- WIDGET DE RECAPTCHA V2 -->
+                    <div class="recaptcha-container" style="margin: 20px 0;">
+                        <div class="g-recaptcha" data-sitekey="6LfOSuwtAAAAAJFqYICX-EDvJfA1IPgXHwRmajBW"></div>
+                    </div>
+
                     <!-- Contenedor para mensajes de estado/error -->
                     <div id="form-status" class="form-status-msg" aria-live="polite"></div>
 

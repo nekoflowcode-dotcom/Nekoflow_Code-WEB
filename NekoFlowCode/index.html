@@ -58,6 +58,9 @@
     <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/card-service.css">
     <link rel="stylesheet" href="./css/hero-section.css">
+
+    <!-- Google reCAPTCHA API -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body>
@@ -89,12 +92,7 @@
         </p>
     </footer>
 
-    <!-- Scripts de Funcionalidad -->
-    <script src="./js/load-components.js" defer></script>
-    <script src="./js/footer-copy.js" defer></script>
-    <script src="./js/contact.js"></script>
-
-    <!-- SDK de EmailJS -->
+    <!-- SDK de EmailJS (Primero se carga la librería) -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script type="text/javascript">
         (function () {
@@ -103,6 +101,11 @@
             });
         })();
     </script>
+
+    <!-- Scripts de Funcionalidad y Controlador de Contacto (Después de EmailJS) -->
+    <script src="./js/load-components.js" defer></script>
+    <script src="./js/footer-copy.js" defer></script>
+    <script src="./js/contact.js"></script>
 </body>
 
 </html>
