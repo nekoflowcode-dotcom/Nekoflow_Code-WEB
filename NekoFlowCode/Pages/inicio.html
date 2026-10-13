@@ -1,5 +1,9 @@
-<!-- === SECCIÓN INICIO (Hero Section) === -->
+<!-- === SECCIÓN INICIO (HERO SECTION) === -->
 <section id="inicio" class="hero-section">
+
+    <!-- CONTROL DEL MODAL: SOLO HTML Y CSS -->
+    <input type="checkbox" id="hero-modal-toggle" class="hero-modal-toggle" aria-hidden="true">
+
     <div class="container">
 
         <!-- TARJETA IZQUIERDA: PRESENTACIÓN -->
@@ -18,7 +22,8 @@
                 y adaptadas a las necesidades de cada proyecto.
             </p>
 
-        </article> <!-- No tocar -->
+        </article>
+        <!-- FIN TARJETA IZQUIERDA -->
 
 
         <!-- TARJETA DERECHA: PRESENTACIÓN DE NEKOFLOW CODE -->
@@ -26,76 +31,110 @@
 
             <div class="hero-cta-content">
 
-                <p class="process-label">Conocé Nekoflow Code</p>
-
-                <h2>Soluciones digitales para hacer crecer tu negocio.</h2>
-
-                <p class="process-description">
-                    Creamos páginas web, catálogos digitales y soluciones a medida
-                    para pymes, comercios y emprendimientos.
+                <p class="process-label">
+                    Conocé Nekoflow Code
                 </p>
 
-                <button class="hero-cta-button" type="button" id="open-hero-modal">
+                <h2>
+                    Soluciones digitales para hacer crecer tu negocio.
+                </h2>
+
+                <p class="process-description">
+                    Creamos páginas web, catálogos digitales y soluciones
+                    a medida para pymes, comercios y emprendimientos.
+                </p>
+
+                <label for="hero-modal-toggle" class="hero-cta-button" role="button" tabindex="0">
                     <span>Conocé quiénes somos</span>
                     <span class="hero-cta-icon" aria-hidden="true">↗</span>
-                </button>
+                </label>
 
             </div>
 
         </article>
+        <!-- FIN TARJETA DERECHA -->
 
-        <!-- TARJETA DERECHA CON MODAL Y PRESENTACIÓN -->
+
         <!-- MODAL: PRESENTACIÓN DE NEKOFLOW CODE -->
-        <dialog class="hero-modal" id="hero-modal" aria-labelledby="hero-modal-title">
+        <div class="hero-modal">
 
-            <div class="hero-modal-content">
+            <!-- FONDO CLICKEABLE PARA CERRAR -->
+            <label for="hero-modal-toggle" class="hero-modal-backdrop" aria-label="Cerrar ventana"></label>
+
+            <!-- CONTENIDO DEL MODAL -->
+            <div class="hero-modal-content" role="dialog" aria-modal="true" aria-labelledby="hero-modal-title">
 
                 <div class="hero-modal-header">
-                    <p class="hero-modal-label">NEKOFLOW CODE</p>
 
-                    <!-- El cierre se conectará al comportamiento JavaScript -->
-                    <button class="hero-modal-close" type="button" aria-label="Cerrar ventana" id="close-hero-modal">
+                    <p class="hero-modal-label">
+                        NEKOFLOW CODE
+                    </p>
+
+                    <label for="hero-modal-toggle" class="hero-modal-close" aria-label="Cerrar ventana" role="button"
+                        tabindex="0">
                         &times;
-                    </button>
+                    </label>
+
                 </div>
 
-                <h2 id="hero-modal-title">Conocé quiénes somos</h2>
+                <h2 id="hero-modal-title">
+                    Conocé quiénes somos
+                </h2>
 
                 <p class="hero-modal-intro">
                     Transformamos ideas en soluciones digitales pensadas
                     para las necesidades de cada negocio.
                 </p>
 
+
+                <!-- QUIÉNES SOMOS -->
                 <div class="hero-modal-section">
+
                     <h3>Quiénes somos</h3>
+
                     <p>
-                        Nekoflow Code es un equipo enfocado en crear soluciones
-                        digitales que acompañen a empresas, pymes, comercios
-                        y emprendimientos en su crecimiento.
+                        Nekoflow Code es un equipo enfocado en crear
+                        soluciones digitales que acompañen a empresas,
+                        pymes, comercios y emprendimientos en su crecimiento.
                     </p>
+
                 </div>
 
+
+                <!-- QUÉ HACEMOS -->
                 <div class="hero-modal-section">
+
                     <h3>Qué hacemos</h3>
+
                     <p>
-                        Desarrollamos páginas web, catálogos digitales y soluciones
-                        a medida, buscando responder a las necesidades de cada proyecto.
+                        Desarrollamos páginas web, catálogos digitales
+                        y soluciones a medida, buscando responder
+                        a las necesidades de cada proyecto.
                     </p>
+
                 </div>
 
+
+                <!-- CÓMO TRABAJAMOS -->
                 <div class="hero-modal-section">
+
                     <h3>Cómo trabajamos</h3>
+
                     <p>
-                        Escuchamos las necesidades de cada cliente, planificamos
-                        la solución y trabajamos en su desarrollo para crear
-                        experiencias digitales funcionales y adaptadas a sus objetivos.
+                        Escuchamos las necesidades de cada cliente,
+                        planificamos la solución y trabajamos en su
+                        desarrollo para crear experiencias digitales
+                        funcionales y adaptadas a sus objetivos.
                     </p>
+
                 </div>
 
             </div>
+            <!-- FIN CONTENIDO DEL MODAL -->
 
-        </dialog>
-
+        </div>
+        <!-- FIN MODAL -->
 
     </div>
 </section>
+<!-- === FIN SECCIÓN INICIO === -->

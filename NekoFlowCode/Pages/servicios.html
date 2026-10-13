@@ -4,86 +4,165 @@
 
         <h2>Soluciones digitales</h2>
 
+        <!-- CHECKBOXES PARA CONTROLAR LOS MODALES -->
+        <input type="checkbox" id="modal-desarrollo" class="service-modal-toggle">
+        <input type="checkbox" id="modal-catalogos" class="service-modal-toggle">
+        <input type="checkbox" id="modal-sistemas" class="service-modal-toggle">
+
+        <!-- TARJETAS DE SERVICIOS -->
         <div class="services-grid">
 
             <!-- SERVICIO 1: DESARROLLO WEB -->
             <article class="service-card">
-
                 <div class="service-icon" aria-hidden="true">
-                    <!-- Espacio reservado para el icono -->
+                    &lt;/&gt;
                 </div>
 
                 <div class="service-content">
                     <h3>Desarrollo web</h3>
-
                     <p>
                         Creamos páginas web modernas, funcionales y adaptadas
                         a las necesidades de tu negocio.
                     </p>
 
-                    <button
-                        type="button"
-                        class="service-button"
-                        data-service="desarrollo-web"
-                    >
-                        Conocé más
-                    </button>
+                    <label for="modal-desarrollo" class="service-button">
+                        Conocé más <span aria-hidden="true">→</span>
+                    </label>
                 </div>
-
             </article>
 
             <!-- SERVICIO 2: CATÁLOGOS DIGITALES -->
             <article class="service-card">
-
                 <div class="service-icon" aria-hidden="true">
-                    <!-- Espacio reservado para el icono -->
+                    ▤
                 </div>
 
                 <div class="service-content">
                     <h3>Catálogos digitales</h3>
-
                     <p>
                         Presentá tus productos o servicios de forma clara,
                         atractiva y fácil de consultar.
                     </p>
 
-                    <button
-                        type="button"
-                        class="service-button"
-                        data-service="catalogos-digitales"
-                    >
-                        Conocé más
-                    </button>
+                    <label for="modal-catalogos" class="service-button">
+                        Conocé más <span aria-hidden="true">→</span>
+                    </label>
                 </div>
-
             </article>
 
             <!-- SERVICIO 3: SISTEMAS A MEDIDA -->
             <article class="service-card">
-
                 <div class="service-icon" aria-hidden="true">
-                    <!-- Espacio reservado para el icono -->
+                    ⚙
                 </div>
 
                 <div class="service-content">
                     <h3>Sistemas a medida</h3>
-
                     <p>
                         Diseñamos soluciones digitales personalizadas para
                         optimizar tareas y responder a necesidades concretas.
                     </p>
 
-                    <button
-                        type="button"
-                        class="service-button"
-                        data-service="sistemas-a-medida"
-                    >
-                        Conocé más
-                    </button>
+                    <label for="modal-sistemas" class="service-button">
+                        Conocé más <span aria-hidden="true">→</span>
+                    </label>
                 </div>
-
             </article>
 
         </div>
+
+        <!-- MODAL 1: DESARROLLO WEB -->
+        <div class="service-modal service-modal-web">
+            <label for="modal-desarrollo" class="service-modal-backdrop"
+                aria-label="Cerrar ventana de Desarrollo web"></label>
+
+            <div class="service-modal-content" role="dialog" aria-modal="true" aria-labelledby="titulo-modal-web">
+
+                <label for="modal-desarrollo" class="service-modal-close" aria-label="Cerrar">×</label>
+
+                <div class="service-modal-icon" aria-hidden="true">&lt;/&gt;</div>
+                <p class="service-modal-eyebrow">NUESTROS SERVICIOS</p>
+                <h3 id="titulo-modal-web">Desarrollo web</h3>
+
+                <p>
+                    Creamos páginas web profesionales que representan tu marca,
+                    comunican tus servicios y ayudan a tu negocio a crecer.
+                </p>
+
+                <ul>
+                    <li>Diseño moderno y atractivo.</li>
+                    <li>Adaptación a celulares, tablets y computadoras.</li>
+                    <li>Estructura clara y navegación sencilla.</li>
+                    <li>Buenas prácticas de rendimiento y SEO.</li>
+                </ul>
+
+                <p class="service-modal-note">
+                    Cada proyecto se adapta a las necesidades de tu negocio.
+                </p>
+            </div>
+        </div>
+
+        <!-- MODAL 2: CATÁLOGOS DIGITALES -->
+        <div class="service-modal service-modal-catalogos">
+            <label for="modal-catalogos" class="service-modal-backdrop"
+                aria-label="Cerrar ventana de Catálogos digitales"></label>
+
+            <div class="service-modal-content" role="dialog" aria-modal="true" aria-labelledby="titulo-modal-catalogos">
+
+                <label for="modal-catalogos" class="service-modal-close" aria-label="Cerrar">×</label>
+
+                <div class="service-modal-icon" aria-hidden="true">▤</div>
+                <p class="service-modal-eyebrow">NUESTROS SERVICIOS</p>
+                <h3 id="titulo-modal-catalogos">Catálogos digitales</h3>
+
+                <p>
+                    Organizamos tus productos o servicios en una presentación
+                    visual clara, profesional y fácil de compartir.
+                </p>
+
+                <ul>
+                    <li>Presentación ordenada de productos o servicios.</li>
+                    <li>Diseño visual alineado con tu marca.</li>
+                    <li>Consulta sencilla desde distintos dispositivos.</li>
+                    <li>Una forma práctica de compartir tu oferta.</li>
+                </ul>
+
+                <p class="service-modal-note">
+                    Una herramienta digital para mostrar lo que ofrecés.
+                </p>
+            </div>
+        </div>
+
+        <!-- MODAL 3: SISTEMAS A MEDIDA -->
+        <div class="service-modal service-modal-sistemas">
+            <label for="modal-sistemas" class="service-modal-backdrop"
+                aria-label="Cerrar ventana de Sistemas a medida"></label>
+
+            <div class="service-modal-content" role="dialog" aria-modal="true" aria-labelledby="titulo-modal-sistemas">
+
+                <label for="modal-sistemas" class="service-modal-close" aria-label="Cerrar">×</label>
+
+                <div class="service-modal-icon" aria-hidden="true">⚙</div>
+                <p class="service-modal-eyebrow">NUESTROS SERVICIOS</p>
+                <h3 id="titulo-modal-sistemas">Sistemas a medida</h3>
+
+                <p>
+                    Desarrollamos soluciones personalizadas para organizar
+                    procesos, facilitar tareas y responder a necesidades reales.
+                </p>
+
+                <ul>
+                    <li>Funciones adaptadas a cada proyecto.</li>
+                    <li>Organización y optimización de tareas.</li>
+                    <li>Posibilidad de ampliar funcionalidades.</li>
+                    <li>Soluciones pensadas para acompañar tu crecimiento.</li>
+                </ul>
+
+                <p class="service-modal-note">
+                    Analizamos cada necesidad para proponer una solución adecuada.
+                </p>
+            </div>
+        </div>
+
     </div>
 </section>
