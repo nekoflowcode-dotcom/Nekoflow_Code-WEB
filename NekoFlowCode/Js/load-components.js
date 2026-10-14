@@ -4,11 +4,11 @@
 document.addEventListener("DOMContentLoaded", () => {
     // Mapa de contenedores y sus archivos correspondientes
     const components = [
-        { id: "inicio-container", file: "Pages/inicio.html" },
-        { id: "nosotros-container", file: "Pages/nosotros.html" },
-        { id: "servicios-container", file: "Pages/servicios.html" },
-        { id: "proyecto-container", file: "Pages/proyecto.html" },
-        { id: "contacto-container", file: "Pages/contacto.html" }
+        { id: "hero-container", file: "pages/hero.html" },
+        { id: "about-container", file: "pages/about.html" },
+        { id: "services-container", file: "pages/services.html" },
+        { id: "projects-container", file: "pages/projects.html" },
+        { id: "contact-container", file: "pages/contact.html" }
     ];
     // Carga paralela de todos los componentes
     const loadPromises = components.map(({ id, file }) => {

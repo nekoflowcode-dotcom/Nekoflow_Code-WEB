@@ -52,8 +52,10 @@
     transition: color 0.2s ease;
 }
 
-.footer_section-link:hover {
+.footer_section-link:hover,
+.footer_section-link:focus {
     color: var(--dark);
+    outline: none; /* Mantiene la estética limpia sin bordes nativos bruscos */
 }
 
 /* ======================= */
@@ -75,8 +77,10 @@
     transition: transform 0.3s ease;
 }
 
-.social_icon img:hover {
+.social_icon img:hover,
+.social_icon img:focus {
     transform: scale(1.1);
+    outline: none;
 }
 
 /* ======================= */

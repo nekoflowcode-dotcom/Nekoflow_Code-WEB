@@ -1,7 +1,7 @@
 @import url(styles.css);
 
 /* ======================= */
-/*     CONTENEDOR FORM     */
+/*    CONTENEDOR FORM    */
 /* ======================= */
 .contact_in {
     width: 100%;
@@ -97,7 +97,7 @@
 }
 
 /* ======================= */
-/*     BOTÓN DE ENVÍO      */
+/*    BOTÓN DE ENVÍO       */
 /* ======================= */
 .contact_form-btn {
     width: 75%;
@@ -113,14 +113,16 @@
     transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 
-.contact_form-btn:hover {
+.contact_form-btn:hover,
+.contact_form-btn:focus {
     background: var(--dark);
     color: var(--primary);
     transform: scale(1.05);
+    outline: none;
 }
 
 /* ======================= */
-/*   MENSAJES DE ESTADO    */
+/*  MENSAJES DE ESTADO     */
 /* ======================= */
 .form-status-msg {
     margin-bottom: 20px;
@@ -147,7 +149,7 @@
 }
 
 /* ======================= */
-/*   ANIMACIÓN DE ESTADOS  */
+/*  ANIMACIÓN DE ESTADOS   */
 /* ======================= */
 @keyframes fadeInSlide {
     0% {
@@ -171,9 +173,15 @@
 }
 
 @keyframes successPulse {
-    0% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.4); }
-    70% { box-shadow: 0 0 0 15px rgba(46, 204, 113, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); }
+    0% { 
+        box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.4); 
+    }
+    70% { 
+        box-shadow: 0 0 0 15px rgba(46, 204, 113, 0); 
+    }
+    100% { 
+        box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); 
+    }
 }
 
 /* ======================= */

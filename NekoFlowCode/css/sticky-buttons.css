@@ -31,14 +31,16 @@
     overflow: hidden;
 }
 
-/* EFECTO HOVER: DESLIZAMIENTO */
-.sticly-social a:hover {
+/* EFECTO HOVER Y FOCUS: DESLIZAMIENTO */
+.sticly-social a:hover,
+.sticly-social a:focus {
     background-color: var(--light-green);
     margin-right: -125px;
+    outline: none; /* Quitamos el borde por defecto del navegador para mantener la estética */
 }
 
 /* ======================= */
-/*     ÍCONOS Y TEXTOS     */
+/*    ÍCONOS Y TEXTOS    */
 /* ======================= */
 .sticly-social a i {
     font-size: 28px;
@@ -47,7 +49,8 @@
     transition: color 0.2s ease;
 }
 
-.sticly-social a:hover i {
+.sticly-social a:hover i,
+.sticly-social a:focus i {
     color: var(--white);
 }
 
@@ -58,7 +61,7 @@
 }
 
 /* ======================= */
-/*       RESPONSIVE        */
+/*        RESPONSIVE       */
 /* ======================= */
 @media only screen and (max-width: 1024px) {
     .sticly-social-container {
