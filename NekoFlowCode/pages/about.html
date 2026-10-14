@@ -62,44 +62,20 @@
 
         <!-- PERFILES DEL EQUIPO -->
         <div class="about-team">
-            <!-- PERSONA 1 -->
+            <!-- Perfil 1 -->
             <article class="about-profile">
                 <div class="about-profile-top">
                     <div class="about-avatar">
-                        P1
+                        JM
                     </div>
 
                     <div class="about-profile-intro">
                         <span class="about-profile-number">01 / EQUIPO</span>
-                        <h4>Persona 1</h4>
-                        <p class="about-profile-role">Desarrollo frontend</p>
+                        <h4>José Espinola</h4>
+                        <p class="about-profile-role">Analista Funcional & Desarrollador</p>
                     </div>
                 </div>
 
-                <p class="about-profile-description">
-                    Estudiante de técnico en computación, con interés
-                    en crear interfaces web claras, atractivas y
-                    adaptables a distintos dispositivos, además de
-                    continuar desarrollando conocimientos fullstack.
-                </p>
-
-                <!-- Botón que activa su panel individual -->
-                <button class="about-expand-link about-person-trigger" data-target="person1-panel"
-                    aria-expanded="false">
-                    Ver stack y perfil técnico <span>↗</span>
-                </button>
-            </article>
-
-            <!-- PERSONA 2 -->
-            <article class="about-profile">
-                <div class="about-profile-top">
-                    <div class="about-avatar">P2</div>
-                    <div class="about-profile-intro">
-                        <span class="about-profile-number">02 / EQUIPO</span>
-                        <h4>Persona 2</h4>
-                        <p class="about-profile-role">Análisis de sistemas y desarrollo</p>
-                    </div>
-                </div>
                 <p class="about-profile-description">
                     Técnico superior en Análisis de Sistemas,
                     con formación orientada al análisis de necesidades,
@@ -112,6 +88,30 @@
                     Ver stack y perfil técnico <span>↗</span>
                 </button>
             </article>
+
+            <!-- Perfil 2 -->
+            <article class="about-profile">
+                <div class="about-profile-top">
+                    <div class="about-avatar">EF</div>
+                    <div class="about-profile-intro">
+                        <span class="about-profile-number">02 / EQUIPO</span>
+                        <h4>Emanuel Farfán</h4>
+                        <p class="about-profile-role">Fullstack</p>
+                    </div>
+                </div>
+                <p class="about-profile-description">
+                    Estudiante de técnico en computación, con interés
+                    en crear interfaces web claras, atractivas y
+                    adaptables a distintos dispositivos, además de
+                    continuar desarrollando conocimientos fullstack.
+                </p>
+
+                <!-- Botón que activa su panel individual -->
+                <button class="about-expand-link about-person-trigger" data-target="person2-panel"
+                    aria-expanded="false">
+                    Ver stack y perfil técnico <span>↗</span>
+                </button>
+            </article>
         </div>
 
         <!-- FICHAS INDIVIDUALES DE HABILIDADES (Desplegables por persona) -->
@@ -120,17 +120,18 @@
             <article id="person1-panel" class="about-person-panel">
                 <div class="about-person-panel-header">
                     <div>
-                        <span class="about-label">PERFIL 01</span>
-                        <h3>Habilidades de Persona 1</h3>
+                        <span class="about-label">STACK INDIVIDUAL</span>
+                        <h3>Competencias</h3>
                     </div>
                     <button class="about-person-close" data-close="person1-panel" aria-label="Cerrar panel">×</button>
                 </div>
 
                 <ul>
-                    <li>Desarrollo de interfaces frontend.</li>
-                    <li>Estructuración de páginas con HTML.</li>
-                    <li>Estilizado y diseño adaptable con CSS.</li>
-                    <li>Conocimientos de desarrollo fullstack.</li>
+                    <li><strong>Análisis y Modelado:</strong> Análisis de sistemas, Levantamiento de requerimientos y diseño de soluciones tecnológicas.</li>
+                    <li><strong>Desarrollo Backend/Scripting:</strong> Python (entornos virtuales, manejo de JSON/CSV,
+                        lógica modular) y C#.</li>
+                    <li><strong>Bases de Datos:</strong> SQL, operaciones CRUD, validación e integridad de datos.</li>
+                    <li><strong>Metodologías:</strong> Scrum, Git/GitHub, Jira y Trello.</li>
                 </ul>
             </article>
 
@@ -138,16 +139,20 @@
             <article id="person2-panel" class="about-person-panel">
                 <div class="about-person-panel-header">
                     <div>
-                        <span class="about-label">PERFIL 02</span>
-                        <h3>Habilidades de Persona 2</h3>
+                        <span class="about-label">STACK INDIVIDUAL</span>
+                        <h3>Competencias</h3>
                     </div>
                     <button class="about-person-close" data-close="person2-panel" aria-label="Cerrar panel">×</button>
                 </div>
                 <ul>
-                    <li>Análisis de sistemas y requerimientos.</li>
-                    <li>Diseño de soluciones tecnológicas.</li>
-                    <li>Desarrollo fullstack.</li>
-                    <li>Planificación de soluciones según las necesidades del proyecto.</li>
+                    <li><strong>Desarrollo Backend:</strong> Programación con Python, Java y PHP para la lógica modular
+                        y el procesamiento de datos.</li>
+                    <li><strong>Bases de Datos y Datos:</strong> Manejo de bases de datos relacionales con SQL y gestión
+                        de consultas.</li>
+                    <li><strong>Frontend & Estilos:</strong> Estructuración con HTML y diseño adaptable (Responsive
+                        Design) con CSS.</li>
+                    <li><strong>Herramientas y Control de Versiones:</strong> Control de cambios y trabajo colaborativo
+                        mediante Git y GitHub.</li>
                 </ul>
             </article>
         </div>
@@ -164,7 +169,7 @@
 
             <!-- Panel 1: Habilidades -->
             <div class="about-panel about-panel-skills">
-                <button class="about-panel-trigger" data-dropdown="skills-content" aria-expanded="false">
+                <button class="about-panel-trigger" aria-expanded="false">
                     <div class="about-panel-icon">⚡</div>
                     <div class="about-panel-title">
                         <strong>Habilidades</strong>
@@ -172,25 +177,22 @@
                     </div>
                     <div class="about-panel-arrow">+</div>
                 </button>
-
-                <div id="skills-content" class="about-panel-content">
+                <div class="about-panel-content">
                     <div class="about-panel-inner">
                         <div class="about-skill-column">
-                            <h4>Persona 1</h4>
+                            <h4>Análisis y Gestión</h4>
                             <ul>
-                                <li>Desarrollo de interfaces frontend.</li>
-                                <li>Estructuración de páginas con HTML.</li>
-                                <li>Estilos y diseño adaptable con CSS.</li>
-                                <li>Conocimientos en desarrollo fullstack.</li>
+                                <li>Requerimientos funcionales y no funcionales</li>
+                                <li>Historias de usuario y diagramas UML</li>
+                                <li>Gestión de proyectos con Scrum / Jira / Trello</li>
                             </ul>
                         </div>
                         <div class="about-skill-column">
-                            <h4>Persona 2</h4>
+                            <h4>Desarrollo y Calidad</h4>
                             <ul>
-                                <li>Análisis de sistemas.</li>
-                                <li>Comprensión de requerimientos.</li>
-                                <li>Diseño de soluciones tecnológicas.</li>
-                                <li>Desarrollo fullstack.</li>
+                                <li>Arquitectura modular y componentes reutilizables</li>
+                                <li>Testing funcional y control de validaciones</li>
+                                <li>Control de versiones con Git y GitHub</li>
                             </ul>
                         </div>
                     </div>
@@ -233,9 +235,9 @@
                 </div>
             </div>
 
-            <!-- PANEL FORMACIÓN -->
+            <!-- Panel 3: Formación -->
             <div class="about-panel about-panel-education">
-                <button class="about-panel-trigger" data-dropdown="education-content" aria-expanded="false">
+                <button class="about-panel-trigger" aria-expanded="false">
                     <div class="about-panel-icon">◇</div>
                     <div class="about-panel-title">
                         <strong>Formación</strong>
@@ -243,26 +245,27 @@
                     </div>
                     <div class="about-panel-arrow">+</div>
                 </button>
-
                 <div class="about-panel-content">
                     <div class="about-panel-inner">
-                        <div class="about-education-item">
+                        <div class="about-education-item" style="margin-top: 16px;">
                             <div class="about-education-marker"></div>
                             <div>
-                                <h4>Persona 1</h4>
-                                <p>
-                                    Formación técnica en computación
-                                    en curso.
-                                </p>
+                                <h4>Tecnicatura Superior en Análisis de Sistemas</h4>
+                                <p>Egresado (2022 - 2025) - Instituto de Formación Técnica Superior N.º 11.</p>
                             </div>
                         </div>
-                        <div class="about-education-item">
+                        <div class="about-education-item" style="margin-top: 16px;">
                             <div class="about-education-marker"></div>
                             <div>
-                                <h4>Persona 2</h4>
-                                <p>
-                                    Técnico superior en Análisis de Sistemas.
-                                </p>
+                                <h4>Tecnicatura Superior en Redes y Ciberseguridad</h4>
+                                <p>En curso (Desde marzo 2026) - Instituto de Formación Técnica Superior N.º 24.</p>
+                            </div>
+                        </div>
+                        <div class="about-education-item" style="margin-top: 16px;">
+                            <div class="about-education-marker"></div>
+                            <div>
+                                <h4>Tecnico en Computación</h4>
+                                <p>En curso (Desde marzo 2023) - E.T. N°26 Confederacion Suiza .</p>
                             </div>
                         </div>
                     </div>
