@@ -28,22 +28,6 @@
 }
 
 /* =========================================
-   CONTROLES
-========================================= */
-
-.about-toggle {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip-path: inset(50%);
-    white-space: nowrap;
-    border: 0;
-}
-
-/* =========================================
    ENCABEZADO
 ========================================= */
 
@@ -274,6 +258,9 @@
     align-items: center;
     gap: 10px;
 
+    background: transparent;
+    border: none;
+    font: inherit;
     color: var(--about-accent);
     font-size: 0.95rem;
     font-weight: 700;
@@ -286,13 +273,9 @@
     gap: 15px;
 }
 
-/* Foco de teclado */
-
 .about-expand-link:focus-visible,
 .about-panel-trigger:focus-visible,
-.about-person-close:focus-visible,
-.about-toggle:focus-visible ~ .container .about-profile .about-expand-link,
-.about-toggle:focus-visible ~ .container .about-panel-trigger {
+.about-person-close:focus-visible {
     outline: 2px solid var(--about-accent);
     outline-offset: 4px;
 }
@@ -316,10 +299,8 @@
     border-radius: 20px;
 }
 
-#about-person1-toggle:checked ~ .container
-.about-person1-panel,
-#about-person2-toggle:checked ~ .container
-.about-person2-panel {
+/* Estado activo manejado por JavaScript */
+.about-person-panel.is-open {
     display: block;
     animation: about-person-appear 0.3s ease;
 }
@@ -362,6 +343,7 @@
     width: 38px;
     height: 38px;
 
+    background: transparent;
     color: var(--about-text);
     font-size: 1.6rem;
 
@@ -416,16 +398,26 @@
     transition: border-color 0.25s ease;
 }
 
+/* Estado activo del panel principal */
+.about-panel.is-open {
+    border-color: var(--about-accent);
+}
+
 .about-panel-trigger {
     display: flex;
     align-items: center;
     gap: 18px;
+    width: 100%;
 
     min-height: 94px;
     padding: 22px 26px;
 
+    background: transparent;
+    border: none;
+    color: inherit;
+    text-align: left;
+
     cursor: pointer;
-    list-style: none;
 
     transition: background-color 0.25s ease;
 }
@@ -486,6 +478,11 @@
     transition: transform 0.3s ease;
 }
 
+/* Rotación de flecha cuando está abierto */
+.about-panel.is-open .about-panel-arrow {
+    transform: rotate(45deg);
+}
+
 /* Contenido cerrado */
 
 .about-panel-content {
@@ -498,6 +495,11 @@
         opacity 0.25s ease;
 }
 
+.about-panel.is-open .about-panel-content {
+    grid-template-rows: 1fr;
+    opacity: 1;
+}
+
 .about-panel-inner {
     min-height: 0;
     overflow: hidden;
@@ -505,73 +507,8 @@
     transition: padding 0.35s ease;
 }
 
-/* HABILIDADES */
-
-#about-skills-toggle:checked ~ .container
-.about-panel-skills {
-    border-color: var(--about-accent);
-}
-
-#about-skills-toggle:checked ~ .container
-.about-panel-skills .about-panel-content {
-    grid-template-rows: 1fr;
-    opacity: 1;
-}
-
-#about-skills-toggle:checked ~ .container
-.about-panel-skills .about-panel-inner {
+.about-panel.is-open .about-panel-inner {
     padding: 0 26px 28px;
-}
-
-#about-skills-toggle:checked ~ .container
-.about-panel-skills .about-panel-arrow {
-    transform: rotate(45deg);
-}
-
-/* TECNOLOGÍAS */
-
-#about-tech-toggle:checked ~ .container
-.about-panel-tech {
-    border-color: var(--about-accent);
-}
-
-#about-tech-toggle:checked ~ .container
-.about-panel-tech .about-panel-content {
-    grid-template-rows: 1fr;
-    opacity: 1;
-}
-
-#about-tech-toggle:checked ~ .container
-.about-panel-tech .about-panel-inner {
-    padding: 0 26px 28px;
-}
-
-#about-tech-toggle:checked ~ .container
-.about-panel-tech .about-panel-arrow {
-    transform: rotate(45deg);
-}
-
-/* FORMACIÓN */
-
-#about-education-toggle:checked ~ .container
-.about-panel-education {
-    border-color: var(--about-accent);
-}
-
-#about-education-toggle:checked ~ .container
-.about-panel-education .about-panel-content {
-    grid-template-rows: 1fr;
-    opacity: 1;
-}
-
-#about-education-toggle:checked ~ .container
-.about-panel-education .about-panel-inner {
-    padding: 0 26px 28px;
-}
-
-#about-education-toggle:checked ~ .container
-.about-panel-education .about-panel-arrow {
-    transform: rotate(45deg);
 }
 
 /* =========================================
@@ -830,12 +767,7 @@
         gap: 24px;
     }
 
-    #about-skills-toggle:checked ~ .container
-    .about-panel-skills .about-panel-inner,
-    #about-tech-toggle:checked ~ .container
-    .about-panel-tech .about-panel-inner,
-    #about-education-toggle:checked ~ .container
-    .about-panel-education .about-panel-inner {
+    .about-panel.is-open .about-panel-inner {
         padding: 0 18px 22px;
     }
 

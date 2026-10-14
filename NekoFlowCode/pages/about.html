@@ -1,49 +1,33 @@
 <!-- === SECCIÓN NOSOTROS === -->
-<section id="nosotros" class="about-section">
-
-    <!-- CONTROLES DE LOS PANELES -->
-    <input type="checkbox" id="about-skills-toggle" class="about-toggle">
-    <input type="checkbox" id="about-tech-toggle" class="about-toggle">
-    <input type="checkbox" id="about-education-toggle" class="about-toggle">
-
-    <!-- CONTROLES DE LOS PERFILES -->
-    <input type="checkbox" id="about-person1-toggle" class="about-toggle">
-    <input type="checkbox" id="about-person2-toggle" class="about-toggle">
-
+<section class="about-section">
     <div class="container">
 
         <!-- ENCABEZADO -->
-        <header class="about-header">
+        <div class="about-header">
             <span class="about-eyebrow">CONOCÉ NUESTRO EQUIPO</span>
-
             <h2>Detrás de cada idea, hay una historia</h2>
-
             <p>
                 Somos un equipo unido por la pasión por la tecnología,
                 las ganas de aprender y el deseo de ayudar a otros
                 a crecer en el mundo digital.
             </p>
-        </header>
+        </div>
 
         <!-- NUESTRA HISTORIA -->
         <article class="about-story">
-
-            <div class="about-story-decoration" aria-hidden="true">
-                N.
+            <div class="about-story-decoration">
+                <span>N.</span>
             </div>
 
             <div class="about-story-content">
                 <span class="about-label">NUESTRA HISTORIA</span>
-
                 <h3>Todo comenzó con una charla entre mates.</h3>
-
                 <p>
                     Entre unos mates y una charla sobre computación,
                     hardware, software y nuevas tecnologías, surgió
                     una pregunta: ¿y si creamos nuestra propia agencia
                     de desarrollo?
                 </p>
-
                 <p>
                     Desde formaciones y experiencias complementarias,
                     compartíamos la misma pasión por la tecnología
@@ -51,7 +35,6 @@
                     como una conversación se convirtió en un proyecto
                     que decidimos hacer realidad.
                 </p>
-
                 <p>
                     Así nació <strong>Nekoflow Code</strong>, con el
                     propósito de acompañar a pequeños negocios,
@@ -59,52 +42,38 @@
                     desarrollar su presencia digital, conectar con
                     más personas y seguir creciendo.
                 </p>
-
                 <p class="about-story-highlight">
                     Creemos que cada negocio tiene algo valioso
                     para ofrecer. Queremos ayudarlo a encontrar
                     su lugar en el mundo digital.
                 </p>
             </div>
-
         </article>
 
-        <!-- PRESENTACIÓN DEL EQUIPO -->
+        <!-- PRESENTACIÓN DEL EQUIPO (TÍTULO EQUIPO)-->
         <div class="about-team-heading">
             <span class="about-label">QUIÉNES ESTAMOS DETRÁS</span>
-
             <h3>Dos caminos, una misma pasión</h3>
-
             <p>
                 Conocé a las personas que impulsan este proyecto
                 y aportan sus conocimientos para hacerlo crecer.
             </p>
         </div>
 
-        <!-- PERFILES -->
+        <!-- PERFILES DEL EQUIPO -->
         <div class="about-team">
-
             <!-- PERSONA 1 -->
             <article class="about-profile">
-
                 <div class="about-profile-top">
-
-                    <div class="about-avatar" aria-hidden="true">
+                    <div class="about-avatar">
                         P1
                     </div>
 
                     <div class="about-profile-intro">
-                        <span class="about-profile-number">
-                            01 / EQUIPO
-                        </span>
-
+                        <span class="about-profile-number">01 / EQUIPO</span>
                         <h4>Persona 1</h4>
-
-                        <p class="about-profile-role">
-                            Desarrollo frontend
-                        </p>
+                        <p class="about-profile-role">Desarrollo frontend</p>
                     </div>
-
                 </div>
 
                 <p class="about-profile-description">
@@ -114,69 +83,47 @@
                     continuar desarrollando conocimientos fullstack.
                 </p>
 
-                <label for="about-person1-toggle" class="about-expand-link" role="button" tabindex="0">
-                    Conocé más
-                    <span aria-hidden="true">↗</span>
-                </label>
-
+                <!-- Botón que activa su panel individual -->
+                <button class="about-expand-link about-person-trigger" data-target="person1-panel"
+                    aria-expanded="false">
+                    Ver stack y perfil técnico <span>↗</span>
+                </button>
             </article>
 
             <!-- PERSONA 2 -->
             <article class="about-profile">
-
                 <div class="about-profile-top">
-
-                    <div class="about-avatar" aria-hidden="true">
-                        P2
-                    </div>
-
+                    <div class="about-avatar">P2</div>
                     <div class="about-profile-intro">
-                        <span class="about-profile-number">
-                            02 / EQUIPO
-                        </span>
-
+                        <span class="about-profile-number">02 / EQUIPO</span>
                         <h4>Persona 2</h4>
-
-                        <p class="about-profile-role">
-                            Análisis de sistemas y desarrollo
-                        </p>
+                        <p class="about-profile-role">Análisis de sistemas y desarrollo</p>
                     </div>
-
                 </div>
-
                 <p class="about-profile-description">
                     Técnico superior en Análisis de Sistemas,
                     con formación orientada al análisis de necesidades,
                     el diseño de soluciones y el desarrollo de sistemas.
                 </p>
 
-                <label for="about-person2-toggle" class="about-expand-link" role="button" tabindex="0">
-                    Conocé más
-                    <span aria-hidden="true">↗</span>
-                </label>
-
+                <!-- Botón que activa su panel individual -->
+                <button class="about-expand-link about-person-trigger" data-target="person1-panel"
+                    aria-expanded="false">
+                    Ver stack y perfil técnico <span>↗</span>
+                </button>
             </article>
-
         </div>
 
-        <!-- FICHAS INDIVIDUALES DE HABILIDADES -->
+        <!-- FICHAS INDIVIDUALES DE HABILIDADES (Desplegables por persona) -->
         <div class="about-person-details">
-
             <!-- HABILIDADES PERSONA 1 -->
-            <article class="about-person-panel about-person1-panel">
-
+            <article id="person1-panel" class="about-person-panel">
                 <div class="about-person-panel-header">
-
                     <div>
                         <span class="about-label">PERFIL 01</span>
                         <h3>Habilidades de Persona 1</h3>
                     </div>
-
-                    <label for="about-person1-toggle" class="about-person-close" role="button" tabindex="0"
-                        aria-label="Cerrar habilidades de Persona 1">
-                        ×
-                    </label>
-
+                    <button class="about-person-close" data-close="person1-panel" aria-label="Cerrar panel">×</button>
                 </div>
 
                 <ul>
@@ -185,76 +132,51 @@
                     <li>Estilizado y diseño adaptable con CSS.</li>
                     <li>Conocimientos de desarrollo fullstack.</li>
                 </ul>
-
             </article>
 
             <!-- HABILIDADES PERSONA 2 -->
-            <article class="about-person-panel about-person2-panel">
-
+            <article id="person2-panel" class="about-person-panel">
                 <div class="about-person-panel-header">
-
                     <div>
                         <span class="about-label">PERFIL 02</span>
                         <h3>Habilidades de Persona 2</h3>
                     </div>
-
-                    <label for="about-person2-toggle" class="about-person-close" role="button" tabindex="0"
-                        aria-label="Cerrar habilidades de Persona 2">
-                        ×
-                    </label>
-
+                    <button class="about-person-close" data-close="person2-panel" aria-label="Cerrar panel">×</button>
                 </div>
-
                 <ul>
                     <li>Análisis de sistemas y requerimientos.</li>
                     <li>Diseño de soluciones tecnológicas.</li>
                     <li>Desarrollo fullstack.</li>
                     <li>Planificación de soluciones según las necesidades del proyecto.</li>
                 </ul>
-
             </article>
-
         </div>
 
-        <!-- EXPLORAR CONOCIMIENTOS -->
+        <!-- PANELES DESPLEGABLES PRINCIPALES (Habilidades, Tecnologías, Formación) -->
         <div class="about-exploration">
-
             <div class="about-exploration-heading">
                 <span class="about-label">LO QUE NOS IMPULSA</span>
-
                 <h3>Conocimientos que ponemos en práctica</h3>
-
                 <p>
                     Explorá nuestras habilidades, tecnologías y formación.
                 </p>
             </div>
 
-            <!-- PANEL HABILIDADES -->
+            <!-- Panel 1: Habilidades -->
             <div class="about-panel about-panel-skills">
-
-                <label for="about-skills-toggle" class="about-panel-trigger" role="button" tabindex="0">
-
-                    <span class="about-panel-icon" aria-hidden="true">
-                        ✳
-                    </span>
-
-                    <span class="about-panel-title">
+                <button class="about-panel-trigger" data-dropdown="skills-content" aria-expanded="false">
+                    <div class="about-panel-icon">⚡</div>
+                    <div class="about-panel-title">
                         <strong>Habilidades</strong>
                         <small>Cómo transformamos ideas en soluciones</small>
-                    </span>
+                    </div>
+                    <div class="about-panel-arrow">+</div>
+                </button>
 
-                    <span class="about-panel-arrow" aria-hidden="true">
-                        ＋
-                    </span>
-
-                </label>
-
-                <div class="about-panel-content">
+                <div id="skills-content" class="about-panel-content">
                     <div class="about-panel-inner">
-
                         <div class="about-skill-column">
                             <h4>Persona 1</h4>
-
                             <ul>
                                 <li>Desarrollo de interfaces frontend.</li>
                                 <li>Estructuración de páginas con HTML.</li>
@@ -262,10 +184,8 @@
                                 <li>Conocimientos en desarrollo fullstack.</li>
                             </ul>
                         </div>
-
                         <div class="about-skill-column">
                             <h4>Persona 2</h4>
-
                             <ul>
                                 <li>Análisis de sistemas.</li>
                                 <li>Comprensión de requerimientos.</li>
@@ -273,101 +193,61 @@
                                 <li>Desarrollo fullstack.</li>
                             </ul>
                         </div>
-
                     </div>
                 </div>
-
             </div>
 
-            <!-- PANEL TECNOLOGÍAS -->
+            <!-- Panel 2: Tecnologías -->
             <div class="about-panel about-panel-tech">
-
-                <label for="about-tech-toggle" class="about-panel-trigger" role="button" tabindex="0">
-
-                    <span class="about-panel-icon" aria-hidden="true">
-                        ⌘
-                    </span>
-
-                    <span class="about-panel-title">
+                <button class="about-panel-trigger" data-dropdown="tech-content" aria-expanded="false">
+                    <div class="about-panel-icon">⌘</div>
+                    <div class="about-panel-title">
                         <strong>Tecnologías</strong>
                         <small>Herramientas y lenguajes de trabajo</small>
-                    </span>
-
-                    <span class="about-panel-arrow" aria-hidden="true">
-                        ＋
-                    </span>
-
-                </label>
-
-                <div class="about-panel-content">
-                    <div class="about-panel-inner about-tech-groups">
-
-                        <div class="about-tech-group">
-                            <h4>Frontend</h4>
-
-                            <div class="about-tags">
-                                <span>HTML5</span>
-                                <span>CSS3</span>
-                                <span>JavaScript</span>
-                            </div>
-                        </div>
-
-                        <div class="about-tech-group">
-                            <h4>Backend y bases de datos</h4>
-
-                            <div class="about-tags">
-                                <span>Python</span>
-                                <span>Django</span>
-                                <span>SQL</span>
-                            </div>
-                        </div>
-
-                        <div class="about-tech-group">
-                            <h4>Herramientas</h4>
-
-                            <div class="about-tags">
-                                <span>Git</span>
-                                <span>GitHub</span>
-                                <span>Visual Studio Code</span>
-                            </div>
-                        </div>
-
                     </div>
-
-                    <p class="about-panel-note">
-                        Trabajamos con estas tecnologías para dar vida a tus proyectos,
-                        y nos adaptamos a las herramientas específicas que tu negocio requiera.
-                    </p>
+                    <div class="about-panel-arrow">+</div>
+                </button>
+                <div id="tech-content" class="about-panel-content">
+                    <div class="about-panel-inner about-tech-groups">
+                        <div class="about-tech-group">
+                            <h4>Lenguajes & Backend</h4>
+                            <div class="about-tags">
+                                <span>Python</span><span>C#</span><span>Java</span><span>JavaScript</span>
+                            </div>
+                        </div>
+                        <div class="about-tech-group">
+                            <h4>Frontend & Estilos</h4>
+                            <div class="about-tags">
+                                <span>HTML5</span><span>CSS3</span><span>Responsive Design</span>
+                            </div>
+                        </div>
+                        <div class="about-tech-group">
+                            <h4>Datos & Herramientas</h4>
+                            <div class="about-tags">
+                                <span>SQL</span><span>Git / GitHub</span><span>Jira</span><span>Trello</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="about-panel-note">Trabajamos con estas tecnologías para dar vida a tus proyectos, y nos
+                        adaptamos a las herramientas específicas que tu negocio requiera.</p>
                 </div>
-
             </div>
 
             <!-- PANEL FORMACIÓN -->
             <div class="about-panel about-panel-education">
-
-                <label for="about-education-toggle" class="about-panel-trigger" role="button" tabindex="0">
-
-                    <span class="about-panel-icon" aria-hidden="true">
-                        ◇
-                    </span>
-
-                    <span class="about-panel-title">
+                <button class="about-panel-trigger" data-dropdown="education-content" aria-expanded="false">
+                    <div class="about-panel-icon">◇</div>
+                    <div class="about-panel-title">
                         <strong>Formación</strong>
                         <small>Aprender, mejorar y seguir creciendo</small>
-                    </span>
-
-                    <span class="about-panel-arrow" aria-hidden="true">
-                        ＋
-                    </span>
-
-                </label>
+                    </div>
+                    <div class="about-panel-arrow">+</div>
+                </button>
 
                 <div class="about-panel-content">
                     <div class="about-panel-inner">
-
                         <div class="about-education-item">
-                            <span class="about-education-marker" aria-hidden="true"></span>
-
+                            <div class="about-education-marker"></div>
                             <div>
                                 <h4>Persona 1</h4>
                                 <p>
@@ -376,10 +256,8 @@
                                 </p>
                             </div>
                         </div>
-
                         <div class="about-education-item">
-                            <span class="about-education-marker" aria-hidden="true"></span>
-
+                            <div class="about-education-marker"></div>
                             <div>
                                 <h4>Persona 2</h4>
                                 <p>
@@ -387,22 +265,16 @@
                                 </p>
                             </div>
                         </div>
-
                     </div>
                 </div>
-
             </div>
 
         </div>
 
         <!-- CIERRE -->
         <div class="about-footer">
-            <p>
-                <strong>Una pasión compartida.</strong>
-                Ideas que se convierten en soluciones.
-            </p>
+            <p>¿Tenés un proyecto en mente? <strong>Construyámoslo juntos.</strong></p>
         </div>
 
     </div>
-
 </section>
