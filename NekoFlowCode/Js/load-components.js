@@ -7,14 +7,15 @@ document.addEventListener("DOMContentLoaded", () => {
         ? `/${window.location.pathname.split("/")[1]}/`
         : "./";
 
-    // Mapa de contenedores y sus archivos correspondientes usando la ruta dinámica
+    // Mapa de contenedores y sus archivos correspondientes utilizando la ruta base dinámica
     const components = [
-        { id: "hero-container", file: "pages/hero.html" },
-        { id: "about-container", file: "pages/about.html" },
-        { id: "services-container", file: "pages/services.html" },
-        { id: "projects-container", file: "pages/projects.html" },
-        { id: "contact-container", file: "pages/contact.html" }
+        { id: "hero-container", file: `${baseHref}pages/hero.html` },
+        { id: "about-container", file: `${baseHref}pages/about.html` },
+        { id: "services-container", file: `${baseHref}pages/services.html` },
+        { id: "projects-container", file: `${baseHref}pages/projects.html` },
+        { id: "contact-container", file: `${baseHref}pages/contact.html` }
     ];
+
     // Carga paralela de todos los componentes
     const loadPromises = components.map(({ id, file }) => {
         const container = document.getElementById(id);
@@ -30,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
             })
             .catch(error => {
                 console.error(`Error al cargar el componente (${file}):`, error);
-                container.innerHTML = `<p class="error-msg">No se pudo cargar esta sección.</p>`;
+                container.innerHTML = `<p class="error-msg" style="color: red; text-align: center;">Error al cargar la sección (${file})</p>`;
             });
     });
 
