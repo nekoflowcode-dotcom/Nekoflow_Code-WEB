@@ -3,19 +3,18 @@
 /* ========================================== */
 document.addEventListener("DOMContentLoaded", () => {
     // Detectar si estamos en GitHub Pages con subrepositorio o en raíz
-    const baseHref = window.location.hostname.includes("github.io") && window.location.pathname.split("/")[1] 
-        ? `/${window.location.pathname.split("/")[1]}/` 
+    const baseHref = window.location.hostname.includes("github.io") && window.location.pathname.split("/")[1]
+        ? `/${window.location.pathname.split("/")[1]}/`
         : "./";
 
     // Mapa de contenedores y sus archivos correspondientes usando la ruta dinámica
     const components = [
-        { id: "hero-container", file: `${baseHref}pages/hero.html` },
-        { id: "about-container", file: `${baseHref}pages/about.html` },
-        { id: "services-container", file: `${baseHref}pages/services.html` },
-        { id: "projects-container", file: `${baseHref}pages/projects.html` },
-        { id: "contact-container", file: `${baseHref}pages/contact.html` }
+        { id: "hero-container", file: "pages/hero.html" },
+        { id: "about-container", file: "pages/about.html" },
+        { id: "services-container", file: "pages/services.html" },
+        { id: "projects-container", file: "pages/projects.html" },
+        { id: "contact-container", file: "pages/contact.html" }
     ];
-
     // Carga paralela de todos los componentes
     const loadPromises = components.map(({ id, file }) => {
         const container = document.getElementById(id);
