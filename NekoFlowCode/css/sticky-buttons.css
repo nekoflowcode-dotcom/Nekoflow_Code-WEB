@@ -20,7 +20,7 @@
 /* ======================= */
 .sticly-social a {
     text-decoration: none;
-    background-color: var(--dark-green);
+    background-color: var(--primary);
     display: flex;
     align-items: center;
     justify-content: flex-end; /* Corregido de 'end' a 'flex-end' para validez estándar */
@@ -34,7 +34,7 @@
 /* EFECTO HOVER Y FOCUS: DESLIZAMIENTO */
 .sticly-social a:hover,
 .sticly-social a:focus {
-    background-color: var(--light-green);
+    background-color: var(--blue-dark);
     margin-right: -125px;
     outline: none; /* Quitamos el borde por defecto del navegador para mantener la estética */
 }
@@ -57,7 +57,7 @@
 .sticly-social a p {
     font-size: 1.1rem;
     font-weight: 700;
-    color: var(--black);
+    color: var(--white);
 }
 
 /* ======================= */

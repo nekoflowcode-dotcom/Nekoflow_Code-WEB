@@ -15,6 +15,7 @@
     --white: #ffffff;
     --red: #ff0000;
     --blue: #1100fc;
+    --blue-dark: #092867;
     --yellow: #ffc800;
     --gray: #666666;
     --gray-light: #eeeeee;
@@ -22,6 +23,11 @@
     --gray-very-light: #f9f9f9;
     --gray-border: #dddddd;
     --gray-placeholder: #aaaaaa;
+    
+    /* Colores de éxito */
+    --success-color: #2ECC71;
+    --success-shadow: rgba(46, 204, 113, 0.4);
+    --success-shadow-transparent: rgba(46, 204, 113, 0);
 
     /* Colores principales */
     --primary: #A855F7;

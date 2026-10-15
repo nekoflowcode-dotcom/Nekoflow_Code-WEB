@@ -1,21 +1,35 @@
-<!-- === SECCIÓN INICIO (HERO SECTION) === -->
+
+<!-- =========================================
+SECCIÓN INICIO - HERO
+Presentación principal de Nekoflow Code
+========================================= -->
+
 <section id="inicio" class="hero-section">
 
-    <!-- CONTROL DEL MODAL: SOLO HTML Y CSS -->
+    <!-- Checkbox que controla la apertura del modal -->
     <input type="checkbox" id="hero-modal-toggle" class="hero-modal-toggle" aria-hidden="true">
 
+    <!-- Contenedor principal: organiza título y tarjetas -->
     <div class="container">
 
-        <!-- TARJETA IZQUIERDA: PRESENTACIÓN -->
+        <!-- TÍTULO PRINCIPAL DE LA AGENCIA -->
+        <div class="hero-title-container">
+            <h1 class="hero-title">Nekoflow Code</h1>
+        </div>
+
+ <!-- =====================================
+TARJETA PRINCIPAL
+Presenta la propuesta de valor
+ ====================================== -->
         <article class="hero-card hero-main">
 
             <p class="hero-label">
                 Desarrollo Web &amp; Soluciones Digitales
             </p>
 
-            <h1>
+            <h2>
                 Tecnología que impulsa tu negocio
-            </h1>
+            </h2>
 
             <p class="hero-description">
                 Creamos soluciones digitales modernas, funcionales
@@ -23,10 +37,13 @@
             </p>
 
         </article>
-        <!-- FIN TARJETA IZQUIERDA -->
+        <!-- FIN TARJETA PRINCIPAL -->
 
 
-        <!-- TARJETA DERECHA: PRESENTACIÓN DE NEKOFLOW CODE -->
+        <!-- =====================================
+             TARJETA DE PRESENTACIÓN
+             Abre el modal informativo
+        ====================================== -->
         <article class="hero-card hero-process">
 
             <div class="hero-cta-content">
@@ -52,18 +69,22 @@
             </div>
 
         </article>
-        <!-- FIN TARJETA DERECHA -->
+        <!-- FIN TARJETA DE PRESENTACIÓN -->
 
 
-        <!-- MODAL: PRESENTACIÓN DE NEKOFLOW CODE -->
+        <!-- =====================================
+             MODAL INFORMATIVO
+             Se muestra al activar el checkbox
+        ====================================== -->
         <div class="hero-modal">
 
-            <!-- FONDO CLICKEABLE PARA CERRAR -->
+            <!-- Fondo que permite cerrar el modal -->
             <label for="hero-modal-toggle" class="hero-modal-backdrop" aria-label="Cerrar ventana"></label>
 
-            <!-- CONTENIDO DEL MODAL -->
+            <!-- Contenido de la ventana -->
             <div class="hero-modal-content" role="dialog" aria-modal="true" aria-labelledby="hero-modal-title">
 
+                <!-- Cabecera del modal -->
                 <div class="hero-modal-header">
 
                     <p class="hero-modal-label">
@@ -87,7 +108,7 @@
                 </p>
 
 
-                <!-- QUIÉNES SOMOS -->
+                <!-- Quiénes somos -->
                 <div class="hero-modal-section">
 
                     <h3>Quiénes somos</h3>
@@ -101,7 +122,7 @@
                 </div>
 
 
-                <!-- QUÉ HACEMOS -->
+                <!-- Qué hacemos -->
                 <div class="hero-modal-section">
 
                     <h3>Qué hacemos</h3>
@@ -115,7 +136,7 @@
                 </div>
 
 
-                <!-- CÓMO TRABAJAMOS -->
+                <!-- Cómo trabajamos -->
                 <div class="hero-modal-section">
 
                     <h3>Cómo trabajamos</h3>
@@ -136,7 +157,7 @@
         <!-- FIN MODAL -->
 
     </div>
+    <!-- FIN CONTENEDOR PRINCIPAL -->
+
 </section>
-
-<!-- === FIN SECCIÓN INICIO === -->
-
+<!-- FIN SECCIÓN INICIO -->

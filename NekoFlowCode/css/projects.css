@@ -1,0 +1,584 @@
+@import url(styles.css);
+/* =========================================
+   PROYECTOS - ESTILOS GENERALES
+   Archivo: css/projects.css
+========================================= */
+
+
+/* Sección completa de proyectos */
+.projects-section {
+    width: 100%;
+    padding: 100px 24px;
+    color: var(--white);
+}
+
+
+/* Limita el ancho y centra el contenido */
+.projects-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   ENCABEZADO DE LA SECCIÓN
+========================================= */
+
+.projects-header {
+    max-width: 720px;
+    margin: 0 auto 48px;
+    text-align: center;
+}
+
+
+/* Texto pequeño sobre el título */
+.projects-eyebrow {
+    display: inline-block;
+    margin-bottom: 16px;
+    color: var(--purple-label);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+
+/* Título principal */
+.projects-header h2 {
+    margin: 0 0 18px;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.2;
+}
+
+
+/* Descripción del encabezado */
+.projects-header p {
+    max-width: 600px;
+    margin: 0 auto;
+    color: #BDB4C9;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+
+/* =========================================
+   GRILLA DE TARJETAS
+========================================= */
+
+.projects-grid {
+    display: grid;
+
+    /* Crea tantas columnas como entren,
+       con un ancho mínimo de 280px por tarjeta */
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(min(100%, 280px), 1fr)
+    );
+
+    gap: 28px;
+    align-items: stretch;
+}
+
+
+/* =========================================
+   TARJETA INDIVIDUAL
+========================================= */
+
+.project-card {
+    min-width: 0;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+
+    background: var(--deep-purple-card);
+    border: 1px solid var(--purple-border-subtle);
+    border-radius: 20px;
+
+    box-shadow: 0 12px 32px var(--shadow-card-dark);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* Efecto de elevación para dispositivos con cursor */
+@media (hover: hover) and (pointer: fine) {
+    .project-card:hover {
+        transform: translateY(-7px);
+        border-color: var(--purple-label);
+        box-shadow: 0 18px 42px rgba(168, 85, 247, 0.15);
+    }
+}
+
+
+/* =========================================
+   VISTA PREVIA DEL PROYECTO
+========================================= */
+
+.project-preview {
+    position: relative;
+    min-height: 230px;
+    padding: 28px 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+    isolation: isolate;
+}
+
+
+/* Fondo violeta para el catálogo */
+.preview-catalog {
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(168, 85, 247, 0.35),
+            transparent 45%
+        ),
+        linear-gradient(135deg, #261637, #15101F);
+}
+
+
+/* Fondo para la landing page */
+.preview-landing {
+    background:
+        radial-gradient(
+            circle at 20% 80%,
+            rgba(139, 92, 246, 0.3),
+            transparent 45%
+        ),
+        linear-gradient(135deg, #191326, #30203E);
+}
+
+
+/* Fondo para el sistema de gestión */
+.preview-custom {
+    background:
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(192, 132, 252, 0.22),
+            transparent 45%
+        ),
+        linear-gradient(135deg, #21172E, #120F19);
+}
+
+
+/* Nombre de la categoría dentro de la vista previa */
+.preview-label {
+    position: absolute;
+    top: 16px;
+    left: 18px;
+
+    color: #E9D5FF;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+}
+
+
+/* Etiqueta que identifica la demostración */
+.project-status {
+    position: absolute;
+    right: 14px;
+    bottom: 14px;
+
+    padding: 6px 11px;
+
+    color: #F3E8FF;
+    background: rgba(23, 19, 31, 0.88);
+    border: 1px solid rgba(193, 138, 255, 0.4);
+    border-radius: 999px;
+
+    font-size: 0.72rem;
+    font-weight: 600;
+}
+
+
+/* =========================================
+   VENTANA SIMULADA DE UN SITIO WEB
+========================================= */
+
+.preview-window {
+    width: 100%;
+    max-width: 330px;
+    overflow: hidden;
+
+    background: #F8F6FC;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 10px;
+
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+
+    transition: transform 0.4s ease;
+}
+
+
+/* Zoom sutil de la vista previa */
+@media (hover: hover) and (pointer: fine) {
+    .project-card:hover .preview-window {
+        transform: scale(1.035);
+    }
+}
+
+
+/* Barra superior de la ventana */
+.preview-topbar {
+    height: 20px;
+    padding: 0 9px;
+
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    background: #E9E2F0;
+}
+
+
+/* Los tres círculos de la barra */
+.preview-topbar span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #A99AB8;
+}
+
+
+/* Contenido de la ventana simulada */
+.preview-content {
+    min-height: 145px;
+    padding: 18px;
+}
+
+
+/* Título simulado */
+.preview-heading {
+    width: 65%;
+    height: 12px;
+    margin-bottom: 16px;
+
+    background: #6B3E8D;
+    border-radius: 4px;
+}
+
+
+/* Productos simulados */
+.preview-products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 9px;
+}
+
+
+/* Cada producto */
+.preview-product {
+    height: 65px;
+    background: linear-gradient(145deg, #E7D7F5, #C7A8E5);
+    border: 1px solid #D8C2EB;
+    border-radius: 6px;
+}
+
+
+/* Líneas decorativas */
+.preview-line {
+    width: 90%;
+    height: 5px;
+    margin-top: 12px;
+
+    background: #DDD5E7;
+    border-radius: 4px;
+}
+
+
+/* Línea más corta */
+.short-line {
+    width: 58%;
+    margin-top: 7px;
+}
+
+
+/* Botón simulado de la landing */
+.preview-button {
+    width: 75px;
+    height: 19px;
+    margin-top: 15px;
+
+    background: #914BC4;
+    border-radius: 5px;
+}
+
+
+/* =========================================
+   VISTA PREVIA DEL SISTEMA DE GESTIÓN
+========================================= */
+
+.preview-dashboard {
+    min-height: 145px;
+    display: grid;
+    grid-template-columns: 60px 1fr;
+}
+
+
+/* Menú lateral simulado */
+.preview-sidebar {
+    padding: 15px 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    background: #E8DDF2;
+}
+
+
+/* Elementos del menú */
+.preview-sidebar span {
+    height: 6px;
+    background: #B9A0D0;
+    border-radius: 4px;
+}
+
+
+/* Área principal del panel */
+.preview-main {
+    padding: 15px 12px;
+}
+
+
+/* Indicadores simulados */
+.preview-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+}
+
+
+/* Tarjetas de estadísticas */
+.preview-stats div {
+    height: 30px;
+    background: #E9DDF5;
+    border-radius: 5px;
+}
+
+
+/* Gráfico simulado */
+.preview-chart {
+    height: 42px;
+    margin-top: 12px;
+
+    display: flex;
+    align-items: end;
+    gap: 6px;
+
+    border-bottom: 1px solid #D8C8E5;
+}
+
+
+/* Barras del gráfico */
+.preview-chart span {
+    flex: 1;
+    background: #A879D0;
+    border-radius: 3px 3px 0 0;
+}
+
+
+/* Alturas diferentes para simular datos */
+.preview-chart span:nth-child(1) {
+    height: 45%;
+}
+
+.preview-chart span:nth-child(2) {
+    height: 75%;
+}
+
+.preview-chart span:nth-child(3) {
+    height: 55%;
+}
+
+.preview-chart span:nth-child(4) {
+    height: 90%;
+}
+
+.preview-chart span:nth-child(5) {
+    height: 68%;
+}
+
+
+/* =========================================
+   INFORMACIÓN DE CADA PROYECTO
+========================================= */
+
+.project-info {
+    flex: 1;
+    padding: 24px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+/* Categoría sobre el título */
+.project-category {
+    margin-bottom: 10px;
+    color: var(--purple-label);
+
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+}
+
+
+/* Nombre del proyecto */
+.project-info h3 {
+    margin: 0 0 12px;
+    color: var(--white);
+    font-size: 1.35rem;
+    line-height: 1.35;
+}
+
+
+/* Descripción */
+.project-info p {
+    margin: 0 0 20px;
+    color: #BDB4C9;
+
+    font-size: 0.94rem;
+    line-height: 1.75;
+}
+
+
+/* =========================================
+   ETIQUETAS DE TECNOLOGÍAS
+========================================= */
+
+.project-technologies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    margin: 0 0 24px;
+    padding: 0;
+    list-style: none;
+}
+
+
+/* Cada tecnología */
+.project-technologies li {
+    padding: 6px 10px;
+
+    color: #DCC5F4;
+    background: rgba(168, 85, 247, 0.1);
+    border: 1px solid rgba(193, 138, 255, 0.2);
+    border-radius: 6px;
+
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+
+/* =========================================
+   ENLACE A LOS DETALLES DEL PROYECTO
+========================================= */
+
+.project-link {
+    width: fit-content;
+    margin-top: auto;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+
+    color: var(--purple-label);
+    font-size: 0.94rem;
+    font-weight: 600;
+    text-decoration: none;
+
+    transition:
+        color 0.25s ease,
+        gap 0.25s ease;
+}
+
+
+/* Cambio de color y separación al pasar el cursor */
+.project-link:hover {
+    color: #E2C4FF;
+    gap: 13px;
+}
+
+
+/* Indicador de foco para navegación con teclado */
+.project-link:focus-visible {
+    outline: 2px solid var(--purple-label);
+    outline-offset: 5px;
+    border-radius: 3px;
+}
+
+
+/* =========================================
+   RESPONSIVE: TABLETS Y CELULARES
+========================================= */
+
+/* En pantallas pequeñas reducimos los espacios */
+@media (max-width: 768px) {
+    .projects-section {
+        padding: 72px 20px;
+    }
+
+    .projects-header {
+        margin-bottom: 36px;
+    }
+
+    .projects-grid {
+        gap: 22px;
+    }
+}
+
+
+/* Ajustes para celulares */
+@media (max-width: 480px) {
+    .projects-section {
+        padding: 56px 16px;
+    }
+
+    .projects-header {
+        text-align: left;
+    }
+
+    .projects-header p {
+        margin-left: 0;
+    }
+
+    .project-preview {
+        min-height: 215px;
+        padding: 28px 18px;
+    }
+
+    .project-info {
+        padding: 21px;
+    }
+}
+
+
+/* =========================================
+   ACCESIBILIDAD: REDUCIR ANIMACIONES
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .project-card,
+    .preview-window,
+    .project-link {
+        transition: none;
+    }
+
+    .project-card:hover {
+        transform: none;
+    }
+
+    .project-card:hover .preview-window {
+        transform: none;
+    }
+}
