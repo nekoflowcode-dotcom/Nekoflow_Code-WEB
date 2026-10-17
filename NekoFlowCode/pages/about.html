@@ -63,100 +63,102 @@
             </p>
         </div>
 
-        <!-- PERFILES DEL EQUIPO -->
+        <!-- PERFILES DEL EQUIPO Y SUS FICHAS -->
         <div class="about-team">
-            <!-- Perfil 1 -->
-            <article class="about-profile">
-                <div class="about-profile-top">
-                    <div class="about-avatar">
-                        JM
+
+            <!-- ==================== INTEGRANTE 1: JOSÉ ESPINOLA ==================== -->
+            <div class="about-member-wrapper">
+                <!-- Tarjeta de José -->
+                <article class="about-profile">
+                    <div class="about-profile-top">
+                        <div class="about-avatar">JM</div>
+                        <div class="about-profile-intro">
+                            <span class="about-profile-number">01 / EQUIPO</span>
+                            <h4>José Espinola</h4>
+                            <p class="about-profile-role">Analista Funcional & Desarrollador</p>
+                        </div>
                     </div>
 
-                    <div class="about-profile-intro">
-                        <span class="about-profile-number">01 / EQUIPO</span>
-                        <h4>José Espinola</h4>
-                        <p class="about-profile-role">Analista Funcional & Desarrollador</p>
+                    <p class="about-profile-description">
+                        Análisis de Sistemas, con formación orientada al análisis de necesidades,
+                        el diseño de soluciones y desarrollo de sistemas.
+                    </p>
+
+                    <button class="about-expand-link about-person-trigger" data-target="person1-panel"
+                        aria-expanded="false">
+                        Ver stack y perfil técnico <span>↗</span>
+                    </button>
+                </article>
+
+                <!-- Competencias de José (Aparece justo debajo de él) -->
+                <article id="person1-panel" class="about-person-panel">
+                    <div class="about-person-panel-header">
+                        <div>
+                            <span class="about-label">STACK INDIVIDUAL</span>
+                            <h3>Competencias</h3>
+                        </div>
+                        <button class="about-person-close" data-close="person1-panel"
+                            aria-label="Cerrar panel">×</button>
                     </div>
-                </div>
+                    <ul>
+                        <li><strong>Análisis y Modelado:</strong> Análisis de sistemas, Levantamiento de requerimientos
+                            y diseño de soluciones tecnológicas.</li>
+                        <li><strong>Desarrollo Backend/Scripting:</strong> Python (entornos virtuales, manejo de
+                            JSON/CSV, lógica modular) y C#.</li>
+                        <li><strong>Bases de Datos:</strong> SQL, operaciones CRUD, validación e integridad de datos.
+                        </li>
+                        <li><strong>Metodologías:</strong> Scrum, Git/GitHub, Jira y Trello.</li>
+                    </ul>
+                </article>
+            </div>
 
-                <p class="about-profile-description">
-                    Análisis de Sistemas, con formación orientada al análisis de necesidades,
-                    el diseño de soluciones y desarrollo de sistemas.
-                </p>
-
-                <!-- Botón que activa su panel individual -->
-                <button class="about-expand-link about-person-trigger" data-target="person1-panel"
-                    aria-expanded="false">
-                    Ver stack y perfil técnico <span>↗</span>
-                </button>
-            </article>
-
-            <!-- Perfil 2 -->
-            <article class="about-profile">
-                <div class="about-profile-top">
-                    <div class="about-avatar">EF</div>
-                    <div class="about-profile-intro">
-                        <span class="about-profile-number">02 / EQUIPO</span>
-                        <h4>Emanuel Farfán</h4>
-                        <p class="about-profile-role">Fullstack</p>
+            <!-- ==================== INTEGRANTE 2: EMANUEL FARFÁN ==================== -->
+            <div class="about-member-wrapper">
+                <!-- Tarjeta de Emanuel -->
+                <article class="about-profile">
+                    <div class="about-profile-top">
+                        <div class="about-avatar">EF</div>
+                        <div class="about-profile-intro">
+                            <span class="about-profile-number">02 / EQUIPO</span>
+                            <h4>Emanuel Farfán</h4>
+                            <p class="about-profile-role">Fullstack</p>
+                        </div>
                     </div>
-                </div>
-                <p class="about-profile-description">
-                    Con interés en crear interfaces web claras, atractivas y
-                    adaptables a distintos dispositivos, además de
-                    continuar desarrollando conocimientos fullstack.
-                </p>
 
-                <!-- Botón que activa su panel individual -->
-                <button class="about-expand-link about-person-trigger" data-target="person2-panel"
-                    aria-expanded="false">
-                    Ver stack y perfil técnico <span>↗</span>
-                </button>
-            </article>
-        </div>
+                    <p class="about-profile-description">
+                        Con interés en crear interfaces web claras, atractivas y
+                        adaptables a distintos dispositivos, además de
+                        continuar desarrollando conocimientos fullstack.
+                    </p>
 
-        <!-- FICHAS INDIVIDUALES DE HABILIDADES (Desplegables por persona) -->
-        <div class="about-person-details">
-            <!-- HABILIDADES PERSONA 1 -->
-            <article id="person1-panel" class="about-person-panel">
-                <div class="about-person-panel-header">
-                    <div>
-                        <span class="about-label">STACK INDIVIDUAL</span>
-                        <h3>Competencias</h3>
+                    <button class="about-expand-link about-person-trigger" data-target="person2-panel"
+                        aria-expanded="false">
+                        Ver stack y perfil técnico <span>↗</span>
+                    </button>
+                </article>
+
+                <!-- Competencias de Emanuel (Aparece justo debajo de él) -->
+                <article id="person2-panel" class="about-person-panel">
+                    <div class="about-person-panel-header">
+                        <div>
+                            <span class="about-label">STACK INDIVIDUAL</span>
+                            <h3>Competencias</h3>
+                        </div>
+                        <button class="about-person-close" data-close="person2-panel"
+                            aria-label="Cerrar panel">×</button>
                     </div>
-                    <button class="about-person-close" data-close="person1-panel" aria-label="Cerrar panel">×</button>
-                </div>
-
-                <ul>
-                    <li><strong>Análisis y Modelado:</strong> Análisis de sistemas, Levantamiento de requerimientos y
-                        diseño de soluciones tecnológicas.</li>
-                    <li><strong>Desarrollo Backend/Scripting:</strong> Python (entornos virtuales, manejo de JSON/CSV,
-                        lógica modular) y C#.</li>
-                    <li><strong>Bases de Datos:</strong> SQL, operaciones CRUD, validación e integridad de datos.</li>
-                    <li><strong>Metodologías:</strong> Scrum, Git/GitHub, Jira y Trello.</li>
-                </ul>
-            </article>
-
-            <!-- HABILIDADES PERSONA 2 -->
-            <article id="person2-panel" class="about-person-panel">
-                <div class="about-person-panel-header">
-                    <div>
-                        <span class="about-label">STACK INDIVIDUAL</span>
-                        <h3>Competencias</h3>
-                    </div>
-                    <button class="about-person-close" data-close="person2-panel" aria-label="Cerrar panel">×</button>
-                </div>
-                <ul>
-                    <li><strong>Desarrollo Backend:</strong> Programación con Python, Java y PHP para la lógica modular
-                        y el procesamiento de datos.</li>
-                    <li><strong>Bases de Datos y Datos:</strong> Manejo de bases de datos relacionales con SQL y gestión
-                        de consultas.</li>
-                    <li><strong>Frontend & Estilos:</strong> Estructuración con HTML y diseño adaptable (Responsive
-                        Design) con CSS.</li>
-                    <li><strong>Herramientas y Control de Versiones:</strong> Control de cambios y trabajo colaborativo
-                        mediante Git y GitHub.</li>
-                </ul>
-            </article>
+                    <ul>
+                        <li><strong>Desarrollo Backend:</strong> Programación con Python, Java y PHP para la lógica
+                            modular y el procesamiento de datos.</li>
+                        <li><strong>Bases de Datos y Datos:</strong> Manejo de bases de datos relacionales con SQL y
+                            gestión de consultas.</li>
+                        <li><strong>Frontend & Estilos:</strong> Estructuración con HTML y diseño adaptable (Responsive
+                            Design) con CSS.</li>
+                        <li><strong>Herramientas y Control de Versiones:</strong> Control de cambios y trabajo
+                            colaborativo mediante Git y GitHub.</li>
+                    </ul>
+                </article>
+            </div>
         </div>
 
         <!-- PANELES DESPLEGABLES PRINCIPALES (Habilidades, Tecnologías, Formación) -->
