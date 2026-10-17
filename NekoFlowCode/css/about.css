@@ -3,14 +3,12 @@
 /* =========================================
    SECCIÓN NOSOTROS
 ========================================= */
-
 .about-section {
     --about-accent: var(--purple, #a78bfa);
     --about-surface: var(--deep-purple-card, #211a35);
     --about-text: var(--white, #f8f7fc);
     --about-muted: #c2bbd1;
     --about-border: var(--purple-border-subtle, #493b62);
-
     width: 100%;
     padding: 100px 24px;
     color: var(--about-text);
@@ -30,7 +28,6 @@
 /* =========================================
    ENCABEZADO
 ========================================= */
-
 .about-header {
     max-width: 780px;
     margin: 0 auto 64px;
@@ -65,18 +62,15 @@
 /* =========================================
    HISTORIA
 ========================================= */
-
 .about-story {
     position: relative;
     display: grid;
     grid-template-columns: 100px minmax(0, 1fr);
     gap: 32px;
     align-items: start;
-
     padding: 48px;
     margin-bottom: 88px;
     overflow: hidden;
-
     background:
         radial-gradient(
             circle at 0% 0%,
@@ -84,7 +78,6 @@
             transparent 48%
         ),
         var(--about-surface);
-
     border: 1px solid var(--about-border);
     border-radius: 28px;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.16);
@@ -94,14 +87,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
     width: 88px;
     aspect-ratio: 1;
-
     color: var(--about-accent);
     font-size: 2.5rem;
     font-weight: 800;
-
     border: 1px solid var(--about-border);
     border-radius: 24px;
     background: rgba(167, 139, 250, 0.08);
@@ -133,17 +123,14 @@
     padding-left: 20px;
     margin-top: 26px;
     margin-bottom: 0;
-
     color: var(--about-text);
     font-weight: 600;
-
     border-left: 3px solid var(--about-accent);
 }
 
 /* =========================================
    TÍTULOS DE SUBSECCIONES
 ========================================= */
-
 .about-team-heading,
 .about-exploration-heading {
     max-width: 720px;
@@ -168,7 +155,6 @@
 /* =========================================
    PERFILES DEL EQUIPO
 ========================================= */
-
 .about-team {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -180,14 +166,11 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-
     min-width: 0;
     padding: 32px;
-
     background: var(--about-surface);
     border: 1px solid var(--about-border);
     border-radius: 24px;
-
     transition:
         transform 0.3s ease,
         border-color 0.3s ease,
@@ -212,15 +195,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
     flex-shrink: 0;
     width: 76px;
     aspect-ratio: 1;
-
     color: var(--about-accent);
     font-size: 1.3rem;
     font-weight: 800;
-
     background: rgba(167, 139, 250, 0.1);
     border: 1px solid var(--about-border);
     border-radius: 50%;
@@ -248,7 +228,6 @@
 .about-profile-description {
     flex: 1;
     margin: 0 0 24px;
-
     color: var(--about-muted);
     line-height: 1.8;
 }
@@ -257,14 +236,12 @@
     display: inline-flex;
     align-items: center;
     gap: 10px;
-
     background: transparent;
     border: none;
     font: inherit;
     color: var(--about-accent);
     font-size: 0.95rem;
     font-weight: 700;
-
     cursor: pointer;
     transition: gap 0.2s ease;
 }
@@ -283,7 +260,6 @@
 /* =========================================
    FICHAS INDIVIDUALES DE HABILIDADES
 ========================================= */
-
 .about-person-details {
     max-width: 940px;
     margin: -48px auto 88px;
@@ -293,7 +269,6 @@
     display: none;
     padding: 30px;
     margin-bottom: 20px;
-
     background: var(--about-surface);
     border: 1px solid var(--about-border);
     border-radius: 20px;
@@ -339,19 +314,14 @@
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-
     width: 38px;
     height: 38px;
-
     background: transparent;
     color: var(--about-text);
     font-size: 1.6rem;
-
     border: 1px solid var(--about-border);
     border-radius: 50%;
-
     cursor: pointer;
-
     transition:
         color 0.2s ease,
         background-color 0.2s ease;
@@ -367,7 +337,6 @@
         opacity: 0;
         transform: translateY(-8px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
@@ -377,7 +346,6 @@
 /* =========================================
    PANELES DESPLEGABLES
 ========================================= */
-
 .about-exploration {
     max-width: 940px;
     margin: 0 auto;
@@ -390,11 +358,9 @@
 .about-panel {
     margin-bottom: 16px;
     overflow: hidden;
-
     background: var(--about-surface);
     border: 1px solid var(--about-border);
     border-radius: 18px;
-
     transition: border-color 0.25s ease;
 }
 
@@ -408,17 +374,13 @@
     align-items: center;
     gap: 18px;
     width: 100%;
-
     min-height: 94px;
     padding: 22px 26px;
-
     background: transparent;
     border: none;
     color: inherit;
     text-align: left;
-
     cursor: pointer;
-
     transition: background-color 0.25s ease;
 }
 
@@ -430,14 +392,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
     flex-shrink: 0;
     width: 48px;
     aspect-ratio: 1;
-
     color: var(--about-accent);
     font-size: 1.6rem;
-
     background: rgba(167, 139, 250, 0.1);
     border-radius: 14px;
 }
@@ -464,17 +423,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
     flex-shrink: 0;
     width: 34px;
     aspect-ratio: 1;
-
     color: var(--about-accent);
     font-size: 1.5rem;
-
     border: 1px solid var(--about-border);
     border-radius: 50%;
-
     transition: transform 0.3s ease;
 }
 
@@ -484,12 +439,10 @@
 }
 
 /* Contenido cerrado */
-
 .about-panel-content {
     display: grid;
     grid-template-rows: 0fr;
     opacity: 0;
-
     transition:
         grid-template-rows 0.35s ease,
         opacity 0.25s ease;
@@ -514,7 +467,6 @@
 /* =========================================
    CONTENIDO DE HABILIDADES GENERALES
 ========================================= */
-
 .about-panel-inner:not(.about-tech-groups) {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -547,7 +499,6 @@
 /* =========================================
    TECNOLOGÍAS
 ========================================= */
-
 .about-tech-groups {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -563,12 +514,9 @@
 .about-tags span {
     display: inline-flex;
     align-items: center;
-
     padding: 8px 12px;
-
     color: var(--about-text);
     font-size: 0.85rem;
-
     background: rgba(167, 139, 250, 0.08);
     border: 1px solid var(--about-border);
     border-radius: 8px;
@@ -584,7 +532,6 @@
 /* =========================================
    FORMACIÓN
 ========================================= */
-
 .about-education-item {
     display: flex;
     align-items: flex-start;
@@ -596,7 +543,6 @@
     width: 12px;
     height: 12px;
     margin-top: 5px;
-
     background: var(--about-accent);
     border-radius: 50%;
     box-shadow: 0 0 0 5px rgba(167, 139, 250, 0.1);
@@ -611,7 +557,6 @@
 /* =========================================
    CIERRE
 ========================================= */
-
 .about-footer {
     margin-top: 64px;
     text-align: center;
@@ -622,7 +567,6 @@
     color: var(--about-muted);
     line-height: 1.8;
 }
-
 .about-footer strong {
     color: var(--about-text);
 }
@@ -630,16 +574,13 @@
 /* =========================================
    RESPONSIVE: TABLET
 ========================================= */
-
 @media (max-width: 768px) {
     .about-section {
         padding: 72px 20px;
     }
-
     .about-header {
         margin-bottom: 44px;
     }
-
     .about-story {
         grid-template-columns: 1fr;
         gap: 22px;
@@ -647,33 +588,27 @@
         margin-bottom: 64px;
         border-radius: 22px;
     }
-
     .about-story-decoration {
         width: 64px;
         font-size: 2rem;
         border-radius: 18px;
     }
-
     .about-team {
         grid-template-columns: 1fr;
         gap: 18px;
         margin-bottom: 64px;
     }
-
     .about-profile {
         padding: 26px;
     }
-
     .about-team-heading,
     .about-exploration-heading {
         margin-bottom: 28px;
     }
-
     .about-tech-groups {
         grid-template-columns: 1fr;
         gap: 24px;
     }
-
     .about-footer {
         margin-top: 44px;
     }
@@ -682,95 +617,74 @@
 /* =========================================
    RESPONSIVE: CELULARES
 ========================================= */
-
 @media (max-width: 480px) {
     .about-section {
         padding: 40px 16px;
     }
-
     .about-header h2 {
         font-size: 2rem;
     }
-
     .about-header > p {
         font-size: 0.95rem;
     }
-
     .about-story {
         padding: 22px;
     }
-
     .about-story-content h3 {
         font-size: 1.65rem;
     }
-
     .about-story-content > p {
         font-size: 0.94rem;
     }
-
     .about-profile {
         padding: 22px;
     }
-
     .about-profile-top {
         gap: 14px;
     }
-
     .about-avatar {
         width: 60px;
         font-size: 1.1rem;
     }
-
     .about-profile-intro h4 {
         font-size: 1.2rem;
     }
-
     .about-profile-role {
         font-size: 0.82rem;
     }
-
     .about-person-details {
         margin-top: -32px;
         margin-bottom: 64px;
     }
-
     .about-person-panel {
         padding: 22px;
     }
-
     .about-panel-trigger {
         gap: 12px;
         min-height: 82px;
         padding: 18px 16px;
     }
-
     .about-panel-icon {
         width: 40px;
         font-size: 1.3rem;
     }
-
     .about-panel-title strong {
         font-size: 0.95rem;
     }
-
     .about-panel-title small {
         font-size: 0.78rem;
     }
-
     .about-panel-arrow {
         width: 28px;
         font-size: 1.2rem;
     }
-
     .about-panel-inner:not(.about-tech-groups) {
         grid-template-columns: 1fr;
         gap: 24px;
     }
-
     .about-panel.is-open .about-panel-inner {
         padding: 0 18px 22px;
     }
-
     .about-panel-note {
         margin: 0 18px 22px;
     }
@@ -779,7 +693,6 @@
 /* =========================================
    ACCESIBILIDAD: MOVIMIENTO REDUCIDO
 ========================================= */
-
 @media (prefers-reduced-motion: reduce) {
     .about-section *,
     .about-section *::before,

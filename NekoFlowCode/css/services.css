@@ -3,7 +3,6 @@
 /* ========================================
    SECCIÓN SERVICIOS
 ======================================== */
-
 .services-section {
     width: 100%;
     padding: 40px 20px;
@@ -21,7 +20,6 @@
 }
 
 /* Línea decorativa debajo del título */
-
 .services-section h2::after {
     content: "";
     display: block;
@@ -37,7 +35,6 @@
 ======================================== */
 
 /* Ocultamos los controles sin desactivar su funcionamiento */
-
 .service-modal-toggle {
     position: absolute;
     width: 1px;
@@ -51,7 +48,6 @@
 }
 
 /* Indicador de foco para navegación con teclado */
-
 .service-modal-toggle:focus-visible + .service-modal-toggle,
 .service-modal-toggle:focus-visible ~ .services-grid .service-button {
     outline: 2px solid var(--purple-border-strong);
@@ -61,14 +57,12 @@
 /* ========================================
    CONTENEDOR DE TARJETAS
 ======================================== */
-
 .services-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: stretch;
     gap: 28px;
-
     width: 100%;
     max-width: 1080px;
     margin: 0 auto;
@@ -77,28 +71,21 @@
 /* ========================================
    TARJETAS DE SERVICIO
 ======================================== */
-
 .service-card {
     box-sizing: border-box;
-
     display: flex;
     flex: 1 1 280px;
     flex-direction: column;
     align-items: stretch;
-
     min-width: 0;
     max-width: 340px;
     padding: 32px 28px;
-
     background: var(--deep-purple-card);
     color: var(--white);
-
     border: 1px solid var(--purple-border-subtle);
     border-radius: 20px;
     box-shadow: 0 15px 40px var(--shadow-card-dark);
-
     text-align: left;
-
     transition:
         transform 0.3s ease,
         box-shadow 0.3s ease,
@@ -113,24 +100,18 @@
 /* ========================================
    ICONOS
 ======================================== */
-
 .service-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-
     width: 66px;
     height: 66px;
     margin-bottom: 22px;
-
     box-sizing: border-box;
-
     color: var(--white);
     background: rgba(100, 45, 220, 0.18);
-
     border: 1px solid var(--purple-border-subtle);
     border-radius: 17px;
-
     font-size: 25px;
     font-weight: 700;
 }
@@ -138,13 +119,11 @@
 /* ========================================
    CONTENIDO DE LAS TARJETAS
 ======================================== */
-
 .service-content {
     display: flex;
     flex: 1;
     flex-direction: column;
     align-items: flex-start;
-
     width: 100%;
 }
 
@@ -165,30 +144,23 @@
 /* ========================================
    BOTONES "CONOCÉ MÁS"
 ======================================== */
-
 .service-button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
-
     margin-top: auto;
     padding: 12px 20px;
-
     color: var(--white);
     background: transparent;
-
     border: 1px solid var(--purple-border-strong);
     border-radius: 12px;
-
     font: inherit;
     font-size: 0.95rem;
     font-weight: 600;
     text-align: center;
-
     cursor: pointer;
     user-select: none;
-
     transition:
         background-color 0.25s ease,
         transform 0.25s ease,
@@ -219,91 +191,68 @@
 /* ========================================
    MODALES: FONDO Y POSICIONAMIENTO
 ======================================== */
-
 .service-modal {
     display: none;
     position: fixed;
     inset: 0;
     z-index: 1000;
-
     align-items: center;
     justify-content: center;
-
     box-sizing: border-box;
     padding: 24px;
-
     overflow-y: auto;
     overscroll-behavior: contain;
 }
 
 /* Fondo oscuro detrás de la ventana */
-
 .service-modal-backdrop {
     position: fixed;
     inset: 0;
     z-index: 0;
-
     background: rgba(7, 4, 22, 0.84);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-
     cursor: pointer;
 }
 
 /* ========================================
    CONTENIDO DEL MODAL
 ======================================== */
-
 .service-modal-content {
     position: relative;
     z-index: 1;
-
     box-sizing: border-box;
     width: 100%;
     max-width: 620px;
     max-height: calc(100vh - 48px);
-
     padding: 42px;
     overflow-y: auto;
-
     color: var(--white);
     background: var(--deep-purple-card);
-
     border: 1px solid var(--purple-border-subtle);
     border-radius: 24px;
-
     box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
-
     text-align: left;
-
     animation: service-modal-appear 0.25s ease-out;
 }
 
 /* Botón de cierre */
-
 .service-modal-close {
     position: absolute;
     top: 17px;
     right: 20px;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     width: 38px;
     height: 38px;
-
     color: var(--white);
     background: rgba(100, 45, 220, 0.12);
-
     border: 1px solid var(--purple-border-subtle);
     border-radius: 12px;
-
     font-size: 27px;
     line-height: 1;
-
     cursor: pointer;
-
     transition:
         background-color 0.25s ease,
         transform 0.25s ease;
@@ -315,52 +264,40 @@
 }
 
 /* Icono dentro del modal */
-
 .service-modal-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-
     width: 64px;
     height: 64px;
     margin-bottom: 22px;
-
     color: var(--white);
     background: rgba(100, 45, 220, 0.2);
-
     border: 1px solid var(--purple-border-subtle);
     border-radius: 17px;
-
     font-size: 25px;
     font-weight: 700;
 }
 
 /* Texto superior */
-
 .service-modal-eyebrow {
     margin: 0 0 10px;
-
     color: var(--purple-border-strong);
-
     font-size: 0.78rem;
     font-weight: 700;
     letter-spacing: 2px;
 }
 
 /* Título del modal */
-
 .service-modal-content h3 {
     margin: 0 0 18px;
     padding-right: 24px;
-
     color: var(--white);
-
     font-size: clamp(1.6rem, 4vw, 2rem);
     line-height: 1.25;
 }
 
 /* Descripción */
-
 .service-modal-content > p:not(.service-modal-eyebrow):not(.service-modal-note) {
     margin: 0 0 22px;
     line-height: 1.75;
@@ -368,15 +305,12 @@
 }
 
 /* Lista de beneficios */
-
 .service-modal-content ul {
     display: flex;
     flex-direction: column;
     gap: 14px;
-
     margin: 0 0 26px;
     padding: 0;
-
     list-style: none;
 }
 
@@ -389,26 +323,20 @@
 
 .service-modal-content li::before {
     content: "✓";
-
     position: absolute;
     top: 0;
     left: 0;
-
     color: var(--purple-border-strong);
     font-weight: 800;
 }
 
 /* Mensaje final */
-
 .service-modal-note {
     margin: 0;
     padding: 16px 18px;
-
     background: rgba(100, 45, 220, 0.12);
-
     border-left: 3px solid var(--purple-border-strong);
     border-radius: 0 10px 10px 0;
-
     line-height: 1.6;
     opacity: 0.95;
 }
@@ -416,7 +344,6 @@
 /* ========================================
    APERTURA DE CADA MODAL
 ======================================== */
-
 #modal-desarrollo:checked ~ .service-modal-web,
 #modal-catalogos:checked ~ .service-modal-catalogos,
 #modal-sistemas:checked ~ .service-modal-sistemas {
@@ -425,13 +352,11 @@
 }
 
 /* Animación de entrada */
-
 @keyframes service-modal-appear {
     from {
         opacity: 0;
         transform: translateY(12px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
@@ -441,12 +366,10 @@
 /* ========================================
    RESPONSIVE: TABLETS
 ======================================== */
-
 @media (max-width: 900px) {
     .services-grid {
         gap: 22px;
     }
-
     .service-card {
         flex-basis: 260px;
         padding: 28px 24px;
@@ -456,44 +379,36 @@
 /* ========================================
    RESPONSIVE: CELULARES
 ======================================== */
-
 @media (max-width: 600px) {
     .services-section {
         padding: 60px 16px;
     }
-
     .services-section h2::after {
         margin-bottom: 30px;
     }
-
     .services-grid {
         flex-direction: column;
         align-items: center;
         gap: 20px;
     }
-
     .service-card {
         flex: 1 1 auto;
         width: 100%;
         max-width: 420px;
         padding: 28px 24px;
     }
-
     .service-modal {
         padding: 14px;
     }
-
     .service-modal-content {
         max-height: calc(100vh - 28px);
         padding: 30px 23px;
         border-radius: 20px;
     }
-
     .service-modal-close {
         top: 12px;
         right: 12px;
     }
-
     .service-modal-icon {
         width: 56px;
         height: 56px;
@@ -503,7 +418,6 @@
 /* ========================================
    MOVIMIENTO REDUCIDO
 ======================================== */
-
 @media (prefers-reduced-motion: reduce) {
     .service-card,
     .service-button,
@@ -511,14 +425,12 @@
     .service-modal-close {
         transition: none;
     }
-
     .service-card:hover,
     .service-button:hover,
     .service-button:hover span,
     .service-modal-close:hover {
         transform: none;
     }
-
     .service-modal-content {
         animation: none;
     }
