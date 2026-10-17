@@ -105,3 +105,24 @@ a {
     margin: 0 auto;
     padding: 0 20px;
 }
+
+/* ==================================================
+   ESTILOS GLOBALES DE SCROLLBAR (MODERNO / OCULTO)
+===================================================== */
+/* Estilo moderno y integrado al tema para todo el sitio */
+*::-webkit-scrollbar {
+    width: 4px; /* Muy delgada y fina */
+}
+
+*::-webkit-scrollbar-track {
+    background: transparent; /* Fondo transparente */
+}
+
+*::-webkit-scrollbar-thumb {
+    background: var(--primary-transparent); /* Color sutil acorde a tu paleta */
+    border-radius: 4px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background: var(--primary); /* Se ilumina al pasar el cursor */
+}

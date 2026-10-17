@@ -153,20 +153,27 @@
 }
 
 /* =========================================
-   PERFILES DEL EQUIPO
+   ESTRUCTURA DE EQUIPO Y PERFILES (ESCRITORIO)
 ========================================= */
 .about-team {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 28px;
+    align-items: start; /* IMPORTANTE: 'start' evita que la tarjeta vecina se estire al abrir un panel */
     margin-bottom: 88px;
+}
+
+.about-member-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
 }
 
 .about-profile {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    min-width: 0;
     padding: 32px;
     background: var(--about-surface);
     border: 1px solid var(--about-border);
@@ -180,7 +187,7 @@
 .about-profile:hover {
     transform: translateY(-5px);
     border-color: var(--about-accent);
-    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+    box-shadow: 0 18px 40px var(--black);
 }
 
 .about-profile-top {
@@ -226,13 +233,14 @@
 }
 
 .about-profile-description {
-    flex: 1;
+    flex: 1; /* Absorbe el espacio vertical sobrante para nivelar las tarjetas */
     margin: 0 0 24px;
     color: var(--about-muted);
     line-height: 1.8;
 }
 
 .about-expand-link {
+    margin-top: auto; /* Se empuja automáticamente al fondo de la tarjeta */
     display: inline-flex;
     align-items: center;
     gap: 10px;
@@ -267,11 +275,12 @@
 
 .about-person-panel {
     display: none;
-    padding: 30px;
-    margin-bottom: 20px;
+    padding: 28px;
     background: var(--about-surface);
     border: 1px solid var(--about-border);
     border-radius: 20px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* Estado activo manejado por JavaScript */
@@ -364,7 +373,6 @@
     transition: border-color 0.25s ease;
 }
 
-/* Estado activo del panel principal */
 .about-panel.is-open {
     border-color: var(--about-accent);
 }
@@ -433,12 +441,10 @@
     transition: transform 0.3s ease;
 }
 
-/* Rotación de flecha cuando está abierto */
 .about-panel.is-open .about-panel-arrow {
     transform: rotate(45deg);
 }
 
-/* Contenido cerrado */
 .about-panel-content {
     display: grid;
     grid-template-rows: 0fr;
@@ -567,12 +573,13 @@
     color: var(--about-muted);
     line-height: 1.8;
 }
+
 .about-footer strong {
     color: var(--about-text);
 }
 
 /* =========================================
-   RESPONSIVE: TABLET
+   RESPONSIVE: TABLET (<= 768px)
 ========================================= */
 @media (max-width: 768px) {
     .about-section {
@@ -593,13 +600,19 @@
         font-size: 2rem;
         border-radius: 18px;
     }
+    /* Grilla del equipo pasa a 1 columna */
     .about-team {
         grid-template-columns: 1fr;
-        gap: 18px;
+        gap: 32px;
         margin-bottom: 64px;
     }
     .about-profile {
         padding: 26px;
+        width: 100%;
+    }
+    .about-person-panel {
+        width: 100%;
+        box-sizing: border-box;
     }
     .about-team-heading,
     .about-exploration-heading {
@@ -615,7 +628,7 @@
 }
 
 /* =========================================
-   RESPONSIVE: CELULARES
+   RESPONSIVE: CELULARES (<= 480px)
 ========================================= */
 @media (max-width: 480px) {
     .about-section {
@@ -643,8 +656,9 @@
         gap: 14px;
     }
     .about-avatar {
-        width: 60px;
-        font-size: 1.1rem;
+        width: 50px;
+        height: 50px;
+        font-size: 1rem;
     }
     .about-profile-intro h4 {
         font-size: 1.2rem;
@@ -653,40 +667,41 @@
         font-size: 0.82rem;
     }
     .about-person-details {
-        margin-top: -32px;
-        margin-bottom: 64px;
+        margin-top: 0;
+        margin-bottom: 32px;
     }
     .about-person-panel {
-        padding: 22px;
+        padding: 20px 18px;
+        border-radius: 16px;
     }
     .about-panel-trigger {
         gap: 12px;
-        min-height: 82px;
-        padding: 18px 16px;
+        min-height: 72px;
+        padding: 16px 14px;
     }
     .about-panel-icon {
-        width: 40px;
-        font-size: 1.3rem;
+        width: 36px;
+        font-size: 1.2rem;
     }
     .about-panel-title strong {
-        font-size: 0.95rem;
+        font-size: 0.92rem;
     }
     .about-panel-title small {
         font-size: 0.78rem;
     }
     .about-panel-arrow {
         width: 28px;
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
     .about-panel-inner:not(.about-tech-groups) {
         grid-template-columns: 1fr;
-        gap: 24px;
+        gap: 20px;
     }
     .about-panel.is-open .about-panel-inner {
-        padding: 0 18px 22px;
+        padding: 0 14px 18px;
     }
     .about-panel-note {
-        margin: 0 18px 22px;
+        margin: 0 14px 18px;
     }
 }
 
