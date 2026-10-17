@@ -10,35 +10,33 @@
     overflow-x: hidden;
 }
 
-/* El banner se estira de lado a lado independientemente de las tarjetas */
+/* El banner ocupa todo el ancho de la pantalla */
 .hero-banner-wrapper {
-    width: 100vw;
+    width: 100%;
     position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    margin-bottom: 2rem; /* Espacio antes de que empiecen las tarjetas */
+    margin: 0 0 2rem;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* La imagen se adapta prolijamente al ancho de la pantalla */
+/* La imagen mantiene sus proporciones y se muestra completa */
 .hero-banner-img {
+    display: block;
     width: 100%;
     height: auto;
-    max-height: 420px;
-    object-fit: cover;
-    display: block;
+    max-height: none;
+    object-fit: contain;
     box-shadow: 0 10px 30px var(--purple-border-subtle);
 }
 
-/* Efecto hover sutil para escritorio */
-.hero-banner-img:hover {
-    transform: scale(1.01);
-    box-shadow: 0 0 35px var(--purple-border-strong);
+/* Efecto hover solamente en dispositivos con cursor */
+@media (hover: hover) and (pointer: fine) {
+    .hero-banner-img:hover {
+        transform: scale(1.01);
+        box-shadow: 0 0 35px var(--purple-border-strong);
+    }
 }
 
 /* Tus tarjetas y contenido inferior conservan su ancho y diseño original */
@@ -572,14 +570,27 @@
 /* ========================================
    19. RESPONSIVE: BANNER
 ======================================== */
-/* Ajustes específicos para celulares (pantallas menores a 768px) */
+
+/* Tablets y celulares */
 @media (max-width: 768px) {
     .hero-banner-wrapper {
-        padding: 0.5rem;
+        margin-bottom: 1.5rem;
+        padding: 0;
     }
+
     .hero-banner-img {
-        max-height: 180px; /* Se reduce la altura en móviles para que no ocupe toda la pantalla */
-        border-radius: 8px;
+        width: 100%;
+        height: auto;
+        max-height: none;
+        object-fit: contain;
+        border-radius: 0;
         box-shadow: 0 0 15px rgba(168, 85, 247, 0.35);
+    }
+}
+
+/* Celulares pequeños */
+@media (max-width: 480px) {
+    .hero-banner-wrapper {
+        margin-bottom: 1.25rem;
     }
 }
