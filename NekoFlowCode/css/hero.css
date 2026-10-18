@@ -570,16 +570,39 @@
 /* ========================================
    19. RESPONSIVE: BANNER
 ======================================== */
+/* El banner mantiene su comportamiento en escritorio */
+.hero-banner-wrapper {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 0 2rem;
+    padding: 0;
+}
+
+.hero-banner-img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+}
 
 /* Tablets y celulares */
 @media (max-width: 768px) {
-    .hero-banner-wrapper {
-        margin-bottom: 1.5rem;
+    .hero-section .hero-banner-wrapper {
+        width: calc(100% + 32px);
+        max-width: none;
+        margin-left: -16px;
+        margin-right: -16px;
         padding: 0;
+        box-sizing: border-box;
     }
 
-    .hero-banner-img {
+    .hero-section .hero-banner-img {
+        display: block;
         width: 100%;
+        max-width: none;
         height: auto;
         max-height: none;
         object-fit: contain;
@@ -590,7 +613,10 @@
 
 /* Celulares pequeños */
 @media (max-width: 480px) {
-    .hero-banner-wrapper {
+    .hero-section .hero-banner-wrapper {
+        width: calc(100% + 32px);
+        margin-left: -16px;
+        margin-right: -16px;
         margin-bottom: 1.25rem;
     }
 }
