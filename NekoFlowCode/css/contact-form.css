@@ -127,7 +127,7 @@
 /* ======================= */
 .form-status-msg {
     margin-bottom: 20px;
-    font-size: 0.95rem;
+    font-size: 1rem;
     font-weight: 600;
     text-align: center;
     min-height: 1.5em;
@@ -186,14 +186,33 @@
 }
 
 /* ======================= */
+/*       RECAPTCHA         */
+/* ======================= */
+.recaptcha-container{
+    width: 100%;
+    overflow: hidden;
+    margin: 20px 0;
+}
+
+/* ======================= */
 /*       RESPONSIVE        */
 /* ======================= */
 @media(max-width: 767px) {
     .contact_form {
         padding: 20px 10px;
     }
-
     .contact_form h2 {
         font-size: 1.5rem;
+    }
+    .contact_form-text, .contact_form-textarea {
+        font-size: 1rem;
+    }
+}
+
+/* En pantallas menores a 355px, reducimos el tamaño proporcionalmente */
+@media screen and (max-width: 355px) {
+    .recaptcha-container {
+        transform: scale(0.8);
+        transform-origin: 0 0;
     }
 }

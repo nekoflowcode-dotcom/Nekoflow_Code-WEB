@@ -148,3 +148,20 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+/* ========================================================== */
+/*   CALLBACK GLOBAL PARA RECAPTCHA INVISIBLE                 */
+/*   Se ejecuta automáticamente tras la validación de Google  */
+/* ========================================================== */
+function onReCaptchaSuccess(token) {
+    // El 'token' ya fue generado. Ahora podés enviar los datos del formulario 
+    // mediante fetch() o dejar que el formulario continúe su envío normal.
+    
+    const form = document.getElementById('email-form');
+    
+    // Ejemplo si usas FormData o Fetch:
+    const formData = new FormData(form);
+    formData.append('g-recaptcha-response', token); // Adjuntas el token para validarlo en tu backend (PHP/Node)
+
+    console.log("Token de reCAPTCHA obtenido con éxito, enviando formulario...");
+}
