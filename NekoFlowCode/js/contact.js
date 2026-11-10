@@ -1,152 +1,215 @@
 /* ========================================== */
 /*   CONTROLADOR DE ENVÍO DE EMAIL (EmailJS)  */
-/*            VALIDACIÓN DE CONTACTO          */
+/*              VALIDACIÓN DE CONTACTO          */
 /* ========================================== */
 document.addEventListener("DOMContentLoaded", () => {
-    // Esperamos a que los componentes estén cargados por si el formulario viene inyectado
-    document.addEventListener("componentsLoaded", () => {
-        const contactForm = document.querySelector("#contacto form");
-        if (!contactForm) return;
+  // Esperamos a que los componentes estén cargados por si el formulario viene inyectado
+  document.addEventListener("componentsLoaded", () => {
+    const contactForm = document.querySelector("#contacto form");
+    if (!contactForm) return;
 
-        const nameInput = document.querySelector("#name");
-        const emailInput = document.querySelector("#email");
-        const messageInput = document.querySelector("#message");
-        const honeypotInput = document.querySelector("#website-trap"); // Captura el campo trampa
-        const submitBtn = document.querySelector("#submit-btn") || contactForm.querySelector(".contact_form-btn");
-        const statusMsg = document.querySelector("#form-status");
-
-        // Expresión regular estándar para validar formato de email
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-        // Función auxiliar interna para mostrar alertas visuales en pantalla
-        function showStatus(message, type) {
-            if (!statusMsg) return;
-            statusMsg.textContent = message;
-            statusMsg.className = "form-status-msg " + (type ? `status-${type}` : "");
-        }
-
-        // UX MEJORA: Limpiar errores y atributos de accesibilidad al empezar a tipear
-        [nameInput, emailInput, messageInput].forEach(input => {
-            input.addEventListener("input", () => {
-                input.removeAttribute("aria-invalid");
-                showStatus("", "");
-            });
+    // Aseguramos el renderizado del reCAPTCHA si el componente se inyecta dinámicamente
+    const recaptchaDiv = document.querySelector(".g-recaptcha");
+    if (
+      typeof grecaptcha !== "undefined" &&
+      recaptchaDiv &&
+      !recaptchaDiv.hasChildNodes()
+    ) {
+      try {
+        grecaptcha.render(recaptchaDiv, {
+          sitekey: "6LfOSuwtAAAAAJFqYICX-EDvJfA1IPgXHwRmajBW",
         });
+      } catch (e) {
+        console.warn("El reCAPTCHA ya estaba inicializado o cargando.", e);
+      }
+    }
 
-        contactForm.addEventListener("submit", function (event) {
-            event.preventDefault(); // Prevenir recarga de página
+    const nameInput = document.querySelector("#name");
+    const emailInput = document.querySelector("#email");
+    const messageInput = document.querySelector("#message");
+    const honeypotInput = document.querySelector("#website-trap"); // Captura el campo trampa
+    const submitBtn =
+      document.querySelector("#submit-btn") ||
+      contactForm.querySelector(".contact_form-btn");
+    const statusMsg = document.querySelector("#form-status");
 
-            showStatus("", ""); // Limpiamos mensajes anteriores
+    // Expresión regular estándar para validar formato de email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-            // 1. CAPA DE SEGURIDAD: HONEYPOT (Detección de Bots)
-            if (honeypotInput && honeypotInput.value.trim() !== "") {
-                showStatus("¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.", "success");
-                contactForm.reset();
-                return;
-            }
+    // Función auxiliar interna para mostrar alertas visuales en pantalla
+    function showStatus(message, type) {
+      if (!statusMsg) return;
+      statusMsg.textContent = message;
+      statusMsg.className = "form-status-msg " + (type ? `status-${type}` : "");
+    }
 
-            // 2. CAPA DE SEGURIDAD: RATE LIMITING (Control de tiempo - 60 segundos)
-            const ultimoEnvio = localStorage.getItem("ultimoEnvioContact");
-            const ahora = Date.now();
-            const tiempoEspera = 60000; // 60 segundos en milisegundos
+    // UX MEJORA: Limpiar errores y atributos de accesibilidad al empezar a tipear
+    [nameInput, emailInput, messageInput].forEach((input) => {
+      input.addEventListener("input", () => {
+        input.removeAttribute("aria-invalid");
+        showStatus("", "");
+      });
+    });
 
-            if (ultimoEnvio && (ahora - ultimoEnvio < tiempoEspera)) {
-                const segundosRestantes = Math.ceil((tiempoEspera - (ahora - ultimoEnvio)) / 1000);
-                showStatus(`Por favor, esperá ${segundosRestantes} segundos antes de enviar otro mensaje.`, "error");
-                return;
-            }
+    contactForm.addEventListener("submit", function (event) {
+      event.preventDefault(); // Prevenir recarga de página
 
-            // 3. VALIDACIONES LOCALES CON UX Y ACCESIBILIDAD
-            if (nameInput.value.trim().length < 3) {
-                showStatus("Por favor, ingresá un nombre válido (mínimo 3 caracteres).", "error");
-                nameInput.setAttribute("aria-invalid", "true");
-                nameInput.focus();
-                return;
-            }
+      showStatus("", ""); // Limpiamos mensajes anteriores
 
-            if (!emailRegex.test(emailInput.value.trim())) {
-                showStatus("Por favor, ingresá un correo electrónico válido.", "error");
-                emailInput.setAttribute("aria-invalid", "true");
-                emailInput.focus();
-                return;
-            }
+      // 1. CAPA DE SEGURIDAD: HONEYPOT (Detección de Bots)
+      if (honeypotInput && honeypotInput.value.trim() !== "") {
+        showStatus(
+          "¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.",
+          "success",
+        );
+        contactForm.reset();
+        return;
+      }
 
-            if (messageInput.value.trim().length < 10) {
-                showStatus("El mensaje es muy corto. Escribí al menos 10 caracteres.", "error");
-                messageInput.setAttribute("aria-invalid", "true");
-                messageInput.focus();
-                return;
-            }
+      // 2. CAPA DE SEGURIDAD: RATE LIMITING (Control de tiempo - 60 segundos)
+      const ultimoEnvio = localStorage.getItem("ultimoEnvioContact");
+      const ahora = Date.now();
+      const tiempoEspera = 60000; // 60 segundos en milisegundos
 
-            // 4. CAPA DE SEGURIDAD: FILTRO ANTI-ENLACES SPAM EN EL MENSAJE
-            const mensajeTexto = messageInput.value.toLowerCase();
-            if (mensajeTexto.includes("http://") || mensajeTexto.includes("https://") || mensajeTexto.includes("www.")) {
-                showStatus("Por seguridad, los mensajes no pueden contener enlaces web.", "error");
-                messageInput.setAttribute("aria-invalid", "true");
-                messageInput.focus();
-                return;
-            }
+      if (ultimoEnvio && ahora - ultimoEnvio < tiempoEspera) {
+        const segundosRestantes = Math.ceil(
+          (tiempoEspera - (ahora - ultimoEnvio)) / 1000,
+        );
+        showStatus(
+          `Por favor, esperá ${segundosRestantes} segundos antes de enviar otro mensaje.`,
+          "error",
+        );
+        return;
+      }
 
-            // ==========================================================
-            // 5. VALIDACIÓN DE RECAPTCHA V2
-            // ==========================================================
-            const recaptchaResponse = grecaptcha.getResponse();
-            if (!recaptchaResponse) {
-                showStatus("Por favor, completá el reCAPTCHA para verificar que no sos un robot.", "error");
-                return;
-            }
+      // 3. VALIDACIONES LOCALES CON UX Y ACCESIBILIDAD
+      if (nameInput.value.trim().length < 3) {
+        showStatus(
+          "Por favor, ingresá un nombre válido (mínimo 3 caracteres).",
+          "error",
+        );
+        nameInput.setAttribute("aria-invalid", "true");
+        nameInput.focus();
+        return;
+      }
 
-            // 6. ESTADO DE CARGA EN EL BOTÓN (UX: Indicador claro de proceso)
-            const originalBtnText = submitBtn.textContent;
-            submitBtn.textContent = "Enviando mensaje...";
-            submitBtn.disabled = true;
+      if (!emailRegex.test(emailInput.value.trim())) {
+        showStatus("Por favor, ingresá un correo electrónico válido.", "error");
+        emailInput.setAttribute("aria-invalid", "true");
+        emailInput.focus();
+        return;
+      }
 
-            // 7. PARÁMETROS + EL TOKEN DE RECAPTCHA PARA EMAILJS
-            const templateParams = {
-                name: nameInput.value.trim(),
-                email: emailInput.value.trim(),
-                message: messageInput.value.trim(),
-                title: "Nuevo contacto desde la web de Nekoflow",
-                time: new Date().toLocaleString(),
-                "g-recaptcha-response": recaptchaResponse // <- Clave indispensable que pide EmailJS
-            };
+      if (messageInput.value.trim().length < 10) {
+        showStatus(
+          "El mensaje es muy corto. Escribí al menos 10 caracteres.",
+          "error",
+        );
+        messageInput.setAttribute("aria-invalid", "true");
+        messageInput.focus();
+        return;
+      }
 
-            const serviceID = "service_NEKOemail";
-            const templateID = "template_NEKOemail";
+      // 4. CAPA DE SEGURIDAD: FILTRO ANTI-ENLACES SPAM EN EL MENSAJE
+      const mensajeTexto = messageInput.value.toLowerCase();
+      if (
+        mensajeTexto.includes("http://") ||
+        mensajeTexto.includes("https://") ||
+        mensajeTexto.includes("www.")
+      ) {
+        showStatus(
+          "Por seguridad, los mensajes no pueden contener enlaces web.",
+          "error",
+        );
+        messageInput.setAttribute("aria-invalid", "true");
+        messageInput.focus();
+        return;
+      }
 
-            // Usamos emailjs.send con su .then(), .catch() y .finally() bien estructurados
-            emailjs.send(serviceID, templateID, templateParams)
-                .then(() => {
-                    localStorage.setItem("ultimoEnvioContact", Date.now());
-                    showStatus("¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.", "success");
+      // ==========================================================
+      // 5. VALIDACIÓN DE RECAPTCHA V2 (Con blindaje defensivo)
+      // ==========================================================
+      let recaptchaResponse = "";
+      try {
+        if (
+          typeof grecaptcha !== "undefined" &&
+          typeof grecaptcha.getResponse === "function"
+        ) {
+          recaptchaResponse = grecaptcha.getResponse();
+        }
+      } catch (error) {
+        console.warn("Error al obtener la respuesta de reCAPTCHA:", error);
+      }
 
-                    // UX EXTRA: Pulso visual de éxito
-                    const formContainer = contactForm.closest(".contact_form");
-                    if (formContainer) {
-                        formContainer.classList.add("success-flash");
-                        setTimeout(() => formContainer.classList.remove("success-flash"), 1000);
-                    }
+      if (!recaptchaResponse) {
+        showStatus(
+          "Por favor, completá el reCAPTCHA para verificar que no sos un robot.",
+          "error",
+        );
+        return;
+      }
 
-                    contactForm.reset(); // Limpia los campos del formulario
-                    grecaptcha.reset(); // Resetea el widget de Google para que pueda usarse de nuevo
+      // 6. ESTADO DE CARGA EN EL BOTÓN (UX: Indicador claro de proceso)
+      const originalBtnText = submitBtn.textContent;
+      submitBtn.textContent = "Enviando mensaje...";
+      submitBtn.disabled = true;
 
-                    // UX EXTRA: Limpiar el mensaje de éxito automáticamente después de 6 segundos
-                    setTimeout(() => {
-                        showStatus("", "");
-                    }, 6000);
-                })
-                .catch((error) => {
-                    console.error("Error al enviar el correo:", error);
-                    showStatus("Hubo un error al enviar el mensaje. Por favor, intentá nuevamente.", "error");
-                    grecaptcha.reset(); // Resetea el captcha si hubo error
-                })
-                .finally(() => {
-                    // Restauramos el botón original de forma segura
-                    submitBtn.textContent = originalBtnText;
-                    submitBtn.disabled = false;
-                });
+      // 7. PARÁMETROS + EL TOKEN DE RECAPTCHA PARA EMAILJS
+      const templateParams = {
+        name: nameInput.value.trim(),
+        email: emailInput.value.trim(),
+        message: messageInput.value.trim(),
+        title: "Nuevo contacto desde la web de Nekoflow",
+        time: new Date().toLocaleString(),
+        "g-recaptcha-response": recaptchaResponse, // <- Clave indispensable que pide EmailJS
+      };
+
+      const serviceID = "service_NEKOemail";
+      const templateID = "template_NEKOemail";
+
+      // Usamos emailjs.send con su .then(), .catch() y .finally() bien estructurados
+      emailjs
+        .send(serviceID, templateID, templateParams)
+        .then(() => {
+          localStorage.setItem("ultimoEnvioContact", Date.now());
+          showStatus(
+            "¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.",
+            "success",
+          );
+
+          // UX EXTRA: Pulso visual de éxito
+          const formContainer = contactForm.closest(".contact_form");
+          if (formContainer) {
+            formContainer.classList.add("success-flash");
+            setTimeout(
+              () => formContainer.classList.remove("success-flash"),
+              1000,
+            );
+          }
+
+          contactForm.reset(); // Limpia los campos del formulario
+          grecaptcha.reset(); // Resetea el widget de Google para que pueda usarse de nuevo
+
+          // UX EXTRA: Limpiar el mensaje de éxito automáticamente después de 6 segundos
+          setTimeout(() => {
+            showStatus("", "");
+          }, 6000);
+        })
+        .catch((error) => {
+          console.error("Error al enviar el correo:", error);
+          showStatus(
+            "Hubo un error al enviar el mensaje. Por favor, intentá nuevamente.",
+            "error",
+          );
+          grecaptcha.reset(); // Resetea el captcha si hubo error
+        })
+        .finally(() => {
+          // Restauramos el botón original de forma segura
+          submitBtn.textContent = originalBtnText;
+          submitBtn.disabled = false;
         });
     });
+  });
 });
 
 /* ========================================================== */
@@ -154,14 +217,14 @@ document.addEventListener("DOMContentLoaded", () => {
 /*   Se ejecuta automáticamente tras la validación de Google  */
 /* ========================================================== */
 function onReCaptchaSuccess(token) {
-    // El 'token' ya fue generado. Ahora podés enviar los datos del formulario 
-    // mediante fetch() o dejar que el formulario continúe su envío normal.
-    
-    const form = document.getElementById('email-form');
-    
-    // Ejemplo si usas FormData o Fetch:
-    const formData = new FormData(form);
-    formData.append('g-recaptcha-response', token); // Adjuntas el token para validarlo en tu backend (PHP/Node)
+  // El 'token' ya fue generado. Ahora podés enviar los datos del formulario
+  // mediante fetch() o dejar que el formulario continúe su envío normal.
 
-    console.log("Token de reCAPTCHA obtenido con éxito, enviando formulario...");
+  const form = document.getElementById("email-form");
+
+  // Ejemplo si usas FormData o Fetch:
+  const formData = new FormData(form);
+  formData.append("g-recaptcha-response", token); // Adjuntas el token para validarlo en tu backend (PHP/Node)
+
+  console.log("Token de reCAPTCHA obtenido con éxito, enviando formulario...");
 }
